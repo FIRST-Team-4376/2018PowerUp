@@ -7,8 +7,8 @@ import org.usfirst.frc.team4376.robot.Robot;
 /**
  *
  */
-public class LowerAntennaCommand extends Command {
-	public LowerAntennaCommand() {
+public class OpenForkliftArmsCommand extends Command {
+	public OpenForkliftArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.lowerAntenna);
 	}
