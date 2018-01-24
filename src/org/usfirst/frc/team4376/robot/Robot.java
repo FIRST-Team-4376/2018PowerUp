@@ -9,13 +9,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4376.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4376.robot.subsystems.CloseForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
-import org.usfirst.frc.team4376.robot.subsystems.LowerAntennaSubsystem;
-import org.usfirst.frc.team4376.robot.subsystems.OpenForkliftArmsSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
 
 
 

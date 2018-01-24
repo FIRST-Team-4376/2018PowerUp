@@ -18,7 +18,7 @@ public class RobotMap {
 	public static int armLiftMotor = 5;
 
 	public static int liftAntennaMotor = 6; 
-	public static int ForkliftarmsMotionmotor = 8; 
+	public static int forkliftArmsMotionMotor = 8; 
 	 
 	public static int driveStick = 0;
     

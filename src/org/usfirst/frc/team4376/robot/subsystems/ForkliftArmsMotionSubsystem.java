@@ -10,30 +10,30 @@ import org.usfirst.frc.team4376.robot.RobotMap;
  */ 
 public class ForkliftArmsMotionSubsystem extends Subsystem {
 	
-	Talon openForkliftArmsMotor;
+	Talon forkliftArmsMotionMotor;
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
 	public ForkliftArmsMotionSubsystem() {
 		
-		ForkliftarmsMotionmotor = new Talon(RobotMap.ForkliftarmsMotionmotor);
+		forkliftArmsMotionMotor = new Talon(RobotMap.forkliftArmsMotionMotor);
 		
 	}
 	
 	public void liftBot(){
 		
-		ForkliftarmsMotionmotor.set(.5);
+		forkliftArmsMotionMotor.set(.5);
 	}
 	
 	public void lowerBot(){
 		
-		ForkliftarmsMotionmotor.set(-.5);
+		forkliftArmsMotionMotor.set(-.5);
 	}
 	
 	public void restBot(){
 		
-		ForkliftarmsMotionmotor.set(0);
+		forkliftArmsMotionMotor.set(0);
 	}
 
     public void initDefaultCommand() {

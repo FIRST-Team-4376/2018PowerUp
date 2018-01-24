@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class OpenForkliftArmsCommand extends Command {
 	public OpenForkliftArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.lowerAntenna);
+		requires(Robot.motionarm);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class OpenForkliftArmsCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.lowerAntenna.lowerBot();
+		Robot.motionarm.lowerBot();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
