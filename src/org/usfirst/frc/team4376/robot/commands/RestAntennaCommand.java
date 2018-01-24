@@ -7,8 +7,8 @@ import org.usfirst.frc.team4376.robot.Robot;
 /**
  *
  */
-public class LiftAntennaCommand extends Command {
-	public LiftAntennaCommand() {
+public class RestAntennaCommand extends Command {
+	public RestAntennaCommand() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.liftAntenna);
 	}
@@ -22,7 +22,7 @@ public class LiftAntennaCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.liftAntenna.liftAntenna();
+		Robot.liftAntenna.restAntenna();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

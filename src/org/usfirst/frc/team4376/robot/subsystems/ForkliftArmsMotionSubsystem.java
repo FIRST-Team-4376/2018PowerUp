@@ -21,17 +21,17 @@ public class ForkliftArmsMotionSubsystem extends Subsystem {
 		
 	}
 	
-	public void liftBot(){
+	public void openArms(){
 		
 		forkliftArmsMotionMotor.set(.5);
 	}
 	
-	public void lowerBot(){
+	public void closeArms(){
 		
 		forkliftArmsMotionMotor.set(-.5);
 	}
 	
-	public void restBot(){
+	public void restArms(){
 		
 		forkliftArmsMotionMotor.set(0);
 	}

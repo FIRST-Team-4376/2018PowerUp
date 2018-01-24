@@ -21,17 +21,17 @@ public class LiftAntennaSubsystem extends Subsystem {
 		
 	}
 	
-	public void liftBot(){
+	public void liftAntenna(){
 		
 		liftAntennaMotor.set(.5);
 	}
 	
-	public void lowerBot(){
+	public void lowerAntenna(){
 		
 		liftAntennaMotor.set(-.5);
 	}
 	
-	public void restBot(){
+	public void restAntenna(){
 		
 		liftAntennaMotor.set(0);
 	}

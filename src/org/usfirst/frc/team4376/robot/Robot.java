@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4376.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4376.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4376.robot.commands.BasicAutonCommand;
+import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
@@ -26,7 +26,7 @@ import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final ChassisSubsystem chassis = new ChassisSubsystem();
 	public static OI oi;
 	public static final LiftSubsystem liftBot = new LiftSubsystem();
 	public static final ForkliftArmsSubsystem arms = new ForkliftArmsSubsystem();
@@ -43,7 +43,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addDefault("Default Auto", new BasicAutonCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}

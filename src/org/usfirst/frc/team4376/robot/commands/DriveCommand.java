@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class DriveCommand extends Command {
 	public DriveCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.exampleSubsystem);
+		requires(Robot.chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class DriveCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.exampleSubsystem.driveMe();
+		Robot.chassis.driveMe();
 		
 	}
 

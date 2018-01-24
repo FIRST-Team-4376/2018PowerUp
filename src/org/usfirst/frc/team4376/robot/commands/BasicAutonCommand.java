@@ -7,10 +7,10 @@ import org.usfirst.frc.team4376.robot.Robot;
 /**
  *
  */
-public class ExampleCommand extends Command {
-	public ExampleCommand() {
+public class BasicAutonCommand extends Command {
+	public BasicAutonCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.exampleSubsystem);
+		requires(Robot.chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -21,6 +21,9 @@ public class ExampleCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		
+		Robot.chassis.driveMe();
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
