@@ -14,7 +14,7 @@ import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
-
+import edu.wpi.first.wpilibj.Encoder;
 
 
 /**
@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
 	public static final ForkliftArmsSubsystem arms = new ForkliftArmsSubsystem();
 	public static final LiftAntennaSubsystem liftAntenna = new LiftAntennaSubsystem();
     public static final ForkliftArmsMotionSubsystem motionarm = new ForkliftArmsMotionSubsystem();
-	
+	public static final Encoder testEncoder = new Encoder(3,4);
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
