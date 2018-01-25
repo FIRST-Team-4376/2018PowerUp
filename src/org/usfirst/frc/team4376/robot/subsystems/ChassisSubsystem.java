@@ -36,6 +36,7 @@ public class ChassisSubsystem extends Subsystem {
 		System.out.println("getDistance; " + Robot.testEncoder.getDistance());
 		System.out.println("getRaw; " + Robot.testEncoder.getRaw());
 		System.out.println("getDirection; " + Robot.testEncoder.getDirection());
+		System.out.println("GRYO Z: " + Robot.gyro.getAngleZ());
 	}
 	
 	public void initDefaultCommand() {

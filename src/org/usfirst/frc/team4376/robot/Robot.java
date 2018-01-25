@@ -15,7 +15,7 @@ import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
 import edu.wpi.first.wpilibj.Encoder;
-
+import org.usfirst.frc.team4376.sensorlib.ADIS16448_IMU;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot {
 	public static final LiftAntennaSubsystem liftAntenna = new LiftAntennaSubsystem();
     public static final ForkliftArmsMotionSubsystem motionarm = new ForkliftArmsMotionSubsystem();
 	public static final Encoder testEncoder = new Encoder(3,4);
+	public static ADIS16448_IMU gyro;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -46,6 +47,9 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new BasicAutonCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		gyro = new ADIS16448_IMU();
+		gyro.reset();
+		gyro.calibrate();
 	}
 
 	/**
