@@ -29,9 +29,10 @@ public class ChassisSubsystem extends Subsystem {
 	}
 	
 	public void driveMe(){
-		
+		double joystickX = stick.getX();
+		double joystickY = stick.getY();
 		// .5 is multiplying the axis value by half so it doesn't go too fast
-		chassis.tankDrive(.5 *1, .5 * 3);
+		chassis.tankDrive(.5 * joystickX, .5 * joystickY);
 		System.out.println("get; " + Robot.testEncoder.get());
 		System.out.println("getDistance; " + Robot.testEncoder.getDistance());
 		System.out.println("getRaw; " + Robot.testEncoder.getRaw());
