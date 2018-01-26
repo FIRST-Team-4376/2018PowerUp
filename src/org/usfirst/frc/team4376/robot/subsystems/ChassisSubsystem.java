@@ -34,7 +34,7 @@ public class ChassisSubsystem extends Subsystem {
 		
 
 		// .5 is multiplying the axis value by half so it doesn't go too fast
-		chassis.tankDrive(-1.0 * leftjoystickY, -1.0 * rightjoystickY);
+		chassis.tankDrive(-.75 * leftjoystickY, -.75 * rightjoystickY);
 		System.out.println("get; " + Robot.testEncoder.get());
 		System.out.println("getDistance; " + Robot.testEncoder.getDistance());
 		System.out.println("getRaw; " + Robot.testEncoder.getRaw());
