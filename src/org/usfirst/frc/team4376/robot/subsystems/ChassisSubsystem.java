@@ -23,7 +23,7 @@ public class ChassisSubsystem extends Subsystem {
 	
 	public ChassisSubsystem(){
 
-		chassis = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.backLeftMotor, RobotMap.frontRightMotor, RobotMap.backRightMotor);
+		chassis = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
 //		lastEncoderValue = Robot.testEncoder.get();
 //		lastEncoderDirection = Robot.testEncoder.getDirection();
 	}
@@ -34,7 +34,7 @@ public class ChassisSubsystem extends Subsystem {
 		
 
 		// .5 is multiplying the axis value by half so it doesn't go too fast
-		chassis.tankDrive(.5 * leftjoystickY, .5 * rightjoystickY);
+		chassis.tankDrive(-1.0 * leftjoystickY, -1.0 * rightjoystickY);
 		System.out.println("get; " + Robot.testEncoder.get());
 		System.out.println("getDistance; " + Robot.testEncoder.getDistance());
 		System.out.println("getRaw; " + Robot.testEncoder.getRaw());
