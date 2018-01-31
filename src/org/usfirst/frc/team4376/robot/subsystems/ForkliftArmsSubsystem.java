@@ -23,17 +23,21 @@ public class ForkliftArmsSubsystem extends Subsystem {
 	
 	public void liftArms(){
 		
-		armLiftMotor.set(.5);
+		armLiftMotor.set(.75);
 	}
 	
 	public void lowerArms(){
 		
-		armLiftMotor.set(-.5);
+		armLiftMotor.set(-.75);
 	}
 	
 	public void restArms(){
 		
 		armLiftMotor.set(0);
+	}
+	
+	public void brakeArms(){
+		armLiftMotor.set(.3);
 	}
 
     public void initDefaultCommand() {

@@ -4,11 +4,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team4376.robot.commands.BrakeArmsCommand;
+import org.usfirst.frc.team4376.robot.commands.CloseForkliftArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LiftArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LiftBotCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerBotCommand;
+import org.usfirst.frc.team4376.robot.commands.OpenForkliftArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RestArmsCommand;
+import org.usfirst.frc.team4376.robot.commands.RestBotCommand;
+import org.usfirst.frc.team4376.robot.commands.RestForkliftArmsCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -53,11 +58,16 @@ public class OI {
 	public OI() {
 		
 		driveStick = new Joystick(RobotMap.driveStick);
+		//You've been hacked!
+		JoystickButton armsUp = new JoystickButton(driveStick, 4);
+		JoystickButton armsDown = new JoystickButton(driveStick, 2);
+		JoystickButton armsOpen = new JoystickButton(driveStick, 1);
+		JoystickButton armsClose = new JoystickButton(driveStick, 3);
 		
-		JoystickButton armsUp = new JoystickButton(driveStick, 0);
-		JoystickButton armsDown = new JoystickButton(driveStick, 1);
-		JoystickButton liftBot = new JoystickButton(driveStick, 2);
-		JoystickButton lowerBot = new JoystickButton(driveStick, 3);
+		JoystickButton brakeArms = new JoystickButton(driveStick, 6);
+		
+		JoystickButton liftBot = new JoystickButton(driveStick, 7);
+		JoystickButton lowerBot = new JoystickButton(driveStick, 8);
 		
 		
 		armsUp.whenPressed(new LiftArmsCommand());
@@ -66,11 +76,20 @@ public class OI {
 		armsDown.whenPressed(new LowerArmsCommand());
 		armsDown.whenReleased(new RestArmsCommand());
 		
+		brakeArms.whenPressed(new BrakeArmsCommand());
+		brakeArms.whenReleased(new RestArmsCommand());
+		
+		armsOpen.whenPressed(new OpenForkliftArmsCommand());
+		armsOpen.whenReleased(new RestForkliftArmsCommand());
+		
+		armsClose.whenPressed(new CloseForkliftArmsCommand());
+		armsClose.whenReleased(new RestForkliftArmsCommand());
+		
 		liftBot.whenPressed(new LiftBotCommand());
-		liftBot.whenReleased(new RestArmsCommand());
+		liftBot.whenReleased(new RestBotCommand());
 		
 		lowerBot.whenPressed(new LowerBotCommand());
-		lowerBot.whenReleased(new RestArmsCommand());
+		lowerBot.whenReleased(new RestBotCommand());
 		
 		
 		

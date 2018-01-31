@@ -14,11 +14,11 @@ public class RobotMap {
 //	public static int frontRightMotor = 2;
 //	public static int backRightMotor = 3;
 	
-	public static int liftBotMotor = 4;
-	public static int armLiftMotor = 5;
+	public static int liftBotMotor = 8;
+	public static int armLiftMotor = 4;
 
 	public static int liftAntennaMotor = 6; 
-	public static int forkliftArmsMotionMotor = 8; 
+	public static int forkliftArmsMotionMotor = 5; 
 	 
 	public static int driveStick = 0;
     
