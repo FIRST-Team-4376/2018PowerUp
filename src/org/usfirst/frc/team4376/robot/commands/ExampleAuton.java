@@ -18,20 +18,19 @@ public class ExampleAuton extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	timer = new Timer();
-    	
-    	timer.reset();
     	Robot.gyro.calibrate();
+    	timer.reset();
     	Robot.gyro.reset();
     	timer.start();
     }
 
-		public void driveStraightAtAngle(double speed){
+		public void driveStraightAtAngle(double speed, double targetAngle){
 			double gyroAngle = Robot.gyro.getAngleZ();
-			double turnFactor = 1.2;
-
-			if(gyroAngle <= 2.0 && gyroAngle >= -2.0){
+			double turnFactor = 10;
+            
+			if(gyroAngle <= (targetAngle+2) && gyroAngle >= (targetAngle-2)){
 				Robot.chassis.tankDrive(speed, speed); //Bot drives straight
-			} else if(gyroAngle > 2.0) {
+			} else if(gyroAngle > (targetAngle+2.0)) {
 				Robot.chassis.tankDrive(speed, speed * turnFactor); //Turn bot to the left
 			} else {
 				Robot.chassis.tankDrive(speed * turnFactor, speed); //Turn bot to the right
@@ -40,7 +39,8 @@ public class ExampleAuton extends Command {
 
 		public void turnLeft(double speed, double targetAngle){ 
 			double leftspeed = 0.0;  
-			double angle = Robot.gyro.getAngle(); 
+			double angle = Robot.gyro.getAngle();
+			System.out.println("TURNING LEFT GYRO ANGLE: " + angle);
 			
 			if( angle > -targetAngle ){leftspeed = -speed; }
 			else if( angle < - targetAngle){leftspeed = speed;}
@@ -49,11 +49,13 @@ public class ExampleAuton extends Command {
 		}
 
 		protected void execute() {
-			if (timer.get() > 0.0 && timer.get() < 7.0) {
-				driveStraightAtAngle(.75);
-			} else {
-				turnLeft(.75, 90.0);
-			}
+//			driveStraightAtAngle(.25, 0.0);
+			turnLeft(.50, -90.0);
+//			if (timer.get() > 0.0 && timer.get() < 7.0) {
+//				driveStraightAtAngle(.75, 0.0);
+//			} else {
+//				turnLeft(.75, 90.0);
+//			}
 		}
 
     // Make this return true when this Command no longer needs to run execute()

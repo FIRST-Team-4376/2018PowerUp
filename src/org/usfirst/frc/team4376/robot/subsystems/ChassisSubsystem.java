@@ -23,7 +23,8 @@ public class ChassisSubsystem extends Subsystem {
 
 	public ChassisSubsystem(){
 
-		chassis = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
+		chassis = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.backLeftMotor, RobotMap.frontRightMotor, RobotMap.backRightMotor);
+//		chassis = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
 //		lastEncoderValue = Robot.testEncoder.get();
 //		lastEncoderDirection = Robot.testEncoder.getDirection();
 	}
