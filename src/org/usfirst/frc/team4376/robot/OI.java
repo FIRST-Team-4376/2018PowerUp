@@ -11,6 +11,8 @@ import org.usfirst.frc.team4376.robot.commands.LiftBotCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerBotCommand;
 import org.usfirst.frc.team4376.robot.commands.OpenForkliftArmsCommand;
+import org.usfirst.frc.team4376.robot.commands.RandomServoCommand;
+import org.usfirst.frc.team4376.robot.commands.RandomServoDownCommand;
 import org.usfirst.frc.team4376.robot.commands.RestArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RestBotCommand;
 import org.usfirst.frc.team4376.robot.commands.RestForkliftArmsCommand;
@@ -69,6 +71,11 @@ public class OI {
 		JoystickButton liftBot = new JoystickButton(driveStick, 7);
 		JoystickButton lowerBot = new JoystickButton(driveStick, 8);
 		
+		JoystickButton servoButton = new JoystickButton(driveStick, 12);
+		
+		
+		servoButton.whenPressed(new RandomServoCommand());
+		servoButton.whenReleased(new RandomServoDownCommand());
 		
 		armsUp.whenPressed(new LiftArmsCommand());
 		armsUp.whenReleased(new RestArmsCommand());

@@ -1,38 +1,49 @@
 package org.usfirst.frc.team4376.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Talon;
 import org.usfirst.frc.team4376.robot.RobotMap;
 
- 
+
 /**
  *
- */ 
+ */
 public class LiftSubsystem extends Subsystem {
-	
+
 	Talon liftBotMotor;
-	
+	Servo ballDorrServo;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	
+
 	public LiftSubsystem() {
-		
+		ballDorrServo = new Servo(RobotMap.ballDoorServoPort);
 		liftBotMotor = new Talon(RobotMap.liftBotMotor);
-		
+
 	}
-	
+
+public void servoUp(){
+  ballDorrServo.set(1);
+}
+
+public void servoDown(){
+  ballDorrServo.set(-1);
+}
+
+
+
 	public void liftBot(){
-		
+
 		liftBotMotor.set(.5);
 	}
-	
+
 	public void lowerBot(){
-		
+
 		liftBotMotor.set(-.5);
 	}
-	
+
 	public void restBot(){
-		
+
 		liftBotMotor.set(0);
 	}
 
@@ -41,4 +52,3 @@ public class LiftSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-
