@@ -2,12 +2,15 @@
 package org.usfirst.frc.team4376.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team4376.robot.commands.BasicAutonCommand;
 import org.usfirst.frc.team4376.robot.commands.ExampleAuton;
 import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
@@ -17,6 +20,11 @@ import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team4376.sensorlib.ADIS16448_IMU;
+
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,8 +40,11 @@ public class Robot extends IterativeRobot {
 	public static final LiftSubsystem liftBot = new LiftSubsystem();
 	public static final ForkliftArmsSubsystem arms = new ForkliftArmsSubsystem();
 	public static final LiftAntennaSubsystem liftAntenna = new LiftAntennaSubsystem();
-    public static final ForkliftArmsMotionSubsystem motionarm = new ForkliftArmsMotionSubsystem();
-	public static final Encoder testEncoder = new Encoder(3,4);
+	public static final ForkliftArmsMotionSubsystem motionarm = new ForkliftArmsMotionSubsystem();
+	public static Encoder forkliftEncoder = new Encoder(RobotMap.forkliftEncoderA, RobotMap.forkliftEncoderB, true, Encoder.EncodingType.k4X);
+	public static Encoder driveMotorL = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, true, Encoder.EncodingType.k4X);
+	public static Encoder driveMotorR = new Encoder(RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB, true, Encoder.EncodingType.k4X);
+
 	public static ADIS16448_IMU gyro;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -51,12 +62,17 @@ public class Robot extends IterativeRobot {
 		gyro = new ADIS16448_IMU();
 		gyro.reset();
 		gyro.calibrate();
+		Timer timer = new Timer();
+		forkliftEncoder.reset();
+		timer.reset();
+		// some sort of way timing the cameras functionality
+		// Disabled mode.
+		// * You can use it to reset any subsystem information you want to
 	}
 
 	/**
-	 * This function is called once each time the robot enters Disabled mode.
-	 * You can use it to reset any subsystem information you want to clear when
-	 * the robot is disabled.
+	 * This function is called once each time the robot enters clear when the
+	 * robot is disabled.
 	 */
 	@Override
 	public void disabledInit() {

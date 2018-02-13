@@ -2,6 +2,8 @@ package org.usfirst.frc.team4376.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Talon;
+
+import org.usfirst.frc.team4376.robot.Robot;
 import org.usfirst.frc.team4376.robot.RobotMap;
 
  
@@ -20,7 +22,21 @@ public class ForkliftArmsMotionSubsystem extends Subsystem {
 		forkliftArmsMotionMotor = new Talon(RobotMap.forkliftArmsMotionMotor);
 		
 	}
+	public void openArmsToLimit(){
+		if(Robot.forkliftEncoder.get() > -50000){
+			forkliftArmsMotionMotor.set(.5);
+		} else {
+			forkliftArmsMotionMotor.set(0);
+		}
+	}
 	
+	public void closeArmsToLimit(){
+		if(Robot.forkliftEncoder.get() < 50000){
+			forkliftArmsMotionMotor.set(-.5);
+		} else {
+			forkliftArmsMotionMotor.set(0);
+		}
+	}
 	public void openArms(){
 		
 		forkliftArmsMotionMotor.set(.5);

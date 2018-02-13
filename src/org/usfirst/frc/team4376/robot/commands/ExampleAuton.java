@@ -1,21 +1,21 @@
 package org.usfirst.frc.team4376.robot.commands;
 
 import org.usfirst.frc.team4376.robot.Robot;
+import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-
 
 public class ExampleAuton extends Command {
 	private Timer timer;
 	
     public ExampleAuton() {
-        // Use requires() here to declare subsystem dependencies
+     	// Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.chassis);
     }
 
-    // Called just before this Command runs the first time
+	// Called just before this Command runs the first time
     protected void initialize() {
     	timer = new Timer();
     	Robot.gyro.calibrate();
@@ -56,9 +56,9 @@ public class ExampleAuton extends Command {
 		}
 
 		protected void execute() {
+			
 //			driveStraightAtAngle(.25, 0.0); 
 //			turnRight(.50,90); 
-			turnInPlace(.50,90.0);
 //			if (timer.get() > 0.0 && timer.get() < 7.0) {
 //				driveStraightAtAngle(.75, 0.0);
 //			} else {
