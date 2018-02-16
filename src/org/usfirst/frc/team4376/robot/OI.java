@@ -60,12 +60,12 @@ public class OI {
 	public OI() {
 		
 		driveStick = new Joystick(RobotMap.driveStick);
-		//You've been hacked!
+
 		JoystickButton armsUp = new JoystickButton(driveStick, 4);
 		JoystickButton armsDown = new JoystickButton(driveStick, 2);
 		JoystickButton armsOpen = new JoystickButton(driveStick, 1);
 		JoystickButton armsClose = new JoystickButton(driveStick, 3);
-		
+
 		JoystickButton brakeArms = new JoystickButton(driveStick, 6);
 		
 		JoystickButton liftBot = new JoystickButton(driveStick, 7);
@@ -97,12 +97,7 @@ public class OI {
 		
 		lowerBot.whenPressed(new LowerBotCommand());
 		lowerBot.whenReleased(new RestBotCommand());
-		
-		
-		
-		
+}
 
-		
-	}
-	
+
 }

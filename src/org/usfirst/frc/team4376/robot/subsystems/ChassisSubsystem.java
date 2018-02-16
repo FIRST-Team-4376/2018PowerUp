@@ -1,4 +1,5 @@
 package org.usfirst.frc.team4376.robot.subsystems;
+import org.usfirst.frc.team4376.robot.OI;
 
 import org.usfirst.frc.team4376.robot.Robot;
 import org.usfirst.frc.team4376.robot.RobotMap;
@@ -19,15 +20,15 @@ public class ChassisSubsystem extends Subsystem {
 	public int testCounter = 0;
 	public ChassisSubsystem(){
          
-		chassis = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.backLeftMotor, RobotMap.frontRightMotor, RobotMap.backRightMotor);
+		chassis = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.frontRightMotor);
 //		chassis = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
 //		lastEncoderValue = Robot.testEncoder.get();
-//		lastEncoderDirection = Robot.testEncoder.getDirection();
+//		lastEncoderDirection = Robot.testEncoder.getDirection(); 
 	}
 
 	public void driveMe(){
-		double leftjoystickY = stick.getRawAxis(1);
-		double rightjoystickY = stick.getRawAxis(3);      
+		double leftjoystickY = stick.getRawAxis(RobotMap.driveStickAxis1);
+		double rightjoystickY = stick.getRawAxis(RobotMap.driveStickAxis2);   
 		// .5 is multiplying the axis value by half so it doesn't go too fast
 		chassis.tankDrive(-.75 * leftjoystickY, -.75 * rightjoystickY);
 		System.out.println("get; " + Robot.forkliftEncoder.get());
@@ -35,8 +36,7 @@ public class ChassisSubsystem extends Subsystem {
 		System.out.println("getRaw; " + Robot.forkliftEncoder.getRaw());
 		System.out.println("getDirection; " + Robot.forkliftEncoder.getDirection());
 		System.out.println("GRYO Z: " + Robot.gyro.getAngleZ());
-	}
-
+		}
 	public void tankDrive(double leftSpeed, double rightSpeed){
 		chassis.tankDrive(leftSpeed, rightSpeed);
 	}

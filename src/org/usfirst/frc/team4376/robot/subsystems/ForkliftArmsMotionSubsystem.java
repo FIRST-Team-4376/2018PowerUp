@@ -30,7 +30,7 @@ public class ForkliftArmsMotionSubsystem extends Subsystem {
 		}
 	}
 	
-	public void closeArmsToLimit(){
+	public  void closeArmsToLimit(){ 
 		if(Robot.forkliftEncoder.get() < 50000){
 			forkliftArmsMotionMotor.set(-.5);
 		} else {

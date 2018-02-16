@@ -1,7 +1,9 @@
 package org.usfirst.frc.team4376.robot.commands;
 
 import org.usfirst.frc.team4376.robot.Robot;
+import org.usfirst.frc.team4376.robot.RobotMap;
 import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -54,16 +56,107 @@ public class ExampleAuton extends Command {
 			}
 			Robot.chassis.tankDrive(leftSpeed, -leftSpeed);
 		}
+		
+		public void leftSwitch(){	
+		if( Robot.driveMotorL.get() < 50000 && Robot.driveMotorR.get() < 50000 ){
+			driveStraightAtAngle(2,0.0); 
+		}
+		else if( Robot.driveMotorL.get() >50000 && Robot.driveMotorR.get() >50000 ){
+			turnInPlace(.50,90); 
+		}
+		else if( Robot.gyro.getAngleZ() >= 90 ){ 
+		driveStraightAtAngle(2,0.0); 
+		}
+		else if( Robot.driveMotorL.get() >50000 && Robot.driveMotorR.get() >50000 ){
+			turnInPlace(.50,90); 
+		}
+		else if( Robot.gyro.getAngleZ() >= 90 ){
+//			ForkliftArmsMotionSubsystem.openArmsToLimit(); 
+//			ForkliftArmsMotionSubsystem.closeArmsToLimit(); 
+	        
+		}
+		else if( Robot.forkliftEncoder.get() <= -50000 ){ 
+              driveStraightAtAngle(-2.0,0.0); 
+		}
+		else if( Robot.driveMotorL.get() <= -50000 && Robot.driveMotorR.get() <= -50000 ){ 
+			turnInPlace(.50,90); 
+		}
+		else if( Robot.gyro.getAngleZ() <= -90 ){
+			driveStraightAtAngle(2,0.0); 
+		} 
+		else if( Robot.driveMotorL.get() > 50000 && Robot.driveMotorR.get() > 50000 ){
+			turnInPlace(.50,-90); 
+		}
+		else if( Robot.gyro.getAngleZ() <= -90 ){
+			driveStraightAtAngle(2,0.0); 
+		} 
+		else if( Robot.driveMotorL.get() > 50000 && Robot.driveMotorR.get() > 50000 ){
+			turnInPlace(.50,90); 
+		}
+		}
+		
+		public void rightSwitch(){
+			if( Robot.driveMotorL.get() < 262.021){
+				driveStraightAtAngle(.5,0.0); 
+			}
+			else if( Robot.driveMotorL.get() >50000 && Robot.driveMotorR.get() >50000 ){
+				turnInPlace(.50,-90); 
+			}
+			else if( Robot.gyro.getAngleZ() <=-90){
+			driveStraightAtAngle(2,0.0); 
+			}
+			else if( Robot.driveMotorL.get() >50000 && Robot.driveMotorR.get() >50000 ){
+				turnInPlace(.50,90); 
+			}
+			else if(  Robot.gyro.getAngleZ() >= 90){
+//				ForkliftArmsMotionSubsystem.openArmsToLimit(); 
+//				ForkliftArmsMotionSubsystem.closeArmsToLimit(); 
+		        
+			}
+			else if( Robot.forkliftEncoder.get() <= -50000 ){ 
+	              driveStraightAtAngle(-2.0,0.0); 
+			}
+			else if( Robot.driveMotorL.get() <= -50000 && Robot.driveMotorR.get() <= -50000 ){ 
+				turnInPlace(.50,90); 
+			}
+			else if( Robot.gyro.getAngleZ() >= 90 ){
+				driveStraightAtAngle(2,0.0); 
+			} 
+			else if( Robot.driveMotorL.get() > 50000 && Robot.driveMotorR.get() > 50000 ){
+				turnInPlace(.50,-90); 
+			}
+			else if( Robot.gyro.getAngleZ() <= 90){
+				driveStraightAtAngle(2,0.0); 
+			} 
+			else if( Robot.driveMotorL.get() > 50000 && Robot.driveMotorR.get() > 50000 ){
+				turnInPlace(.50,-90); 
+			}
+			
+		}
+		
+		public void leftScale(){
+			
+		}
+		
+		public void rightScale(){
+			
+		}
 
 		protected void execute() {
+			System.out.println("AUTON RIGHT MOTOR ENCODER: " + Robot.driveMotorR.get());
+			System.out.println("AUTON LEFT MOTOR ENCODER: " + Robot.driveMotorL.get());
+			if( Robot.driveMotorL.get() < 262.021){
+				driveStraightAtAngle(.5,0.0); 
+			} else if (Robot.gyro.getAngleZ() > -89){
+				turnInPlace(.50,-90);
+			} else {
+				driveStraightAtAngle(.3,-90);
+			}
+			// driveMotorL
+			// driveMotorR
+		
+	
 			
-//			driveStraightAtAngle(.25, 0.0); 
-//			turnRight(.50,90); 
-//			if (timer.get() > 0.0 && timer.get() < 7.0) {
-//				driveStraightAtAngle(.75, 0.0);
-//			} else {
-//				turnLeft(.75, 90.0);
-//			}
 		}
 
     // Make this return true when this Command no longer needs to run execute()
@@ -80,6 +173,6 @@ public class ExampleAuton extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	
     }
-
 }
