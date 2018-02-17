@@ -19,6 +19,8 @@ import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.PidTurnToAngleSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.PidDriveStraightSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team4376.sensorlib.ADIS16448_IMU;
@@ -40,6 +42,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class Robot extends IterativeRobot {
 
 	public static final ChassisSubsystem chassis = new ChassisSubsystem();
+	public static final PidTurnToAngleSubsystem pidTurnToAngle = new PidTurnToAngleSubsystem();
+	public static final PidDriveStraightSubsystem pidDriveStraight = new PidDriveStraightSubsystem();
 	public static OI oi;
 	public static final LiftSubsystem liftBot = new LiftSubsystem();
 	public static final ForkliftArmsSubsystem arms = new ForkliftArmsSubsystem();
