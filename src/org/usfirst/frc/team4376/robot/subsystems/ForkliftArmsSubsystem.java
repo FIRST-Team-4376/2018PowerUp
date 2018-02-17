@@ -29,7 +29,7 @@ public class ForkliftArmsSubsystem extends Subsystem {
 	}
 	
 	public void liftArmsToLimit(){
-		if(Robot.forkliftEncoder.get() > -50000){
+		if(Robot.forkliftPositionEncoder.get() > -50000){
 			liftArms();
 		} else {
 			restArms();
@@ -37,7 +37,7 @@ public class ForkliftArmsSubsystem extends Subsystem {
 	}
 	
 	public void lowerArmsToLimit(){
-		if(Robot.forkliftEncoder.get() > 50000){
+		if(Robot.forkliftPositionEncoder.get() > 50000){
 			lowerArms();
 		} else {
 			restArms();
