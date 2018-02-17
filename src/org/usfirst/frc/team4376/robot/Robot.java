@@ -25,6 +25,7 @@ import org.usfirst.frc.team4376.sensorlib.ADIS16448_IMU;
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
 
 /**
@@ -46,6 +47,7 @@ public class Robot extends IterativeRobot {
 	public static Encoder driveMotorL = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorR = new Encoder(RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB, true, Encoder.EncodingType.k4X);
     public static Encoder forkliftMotion =  new Encoder(RobotMap.forkliftMotionEncoderA, RobotMap.forkliftMotionEncoderB, true, Encoder.EncodingType.k4X);
+    public static AnalogInput clawPressureSensor = new AnalogInput(1);
 	public static ADIS16448_IMU gyro;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();

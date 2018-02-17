@@ -18,10 +18,13 @@ public class RobotMap {
 	public static int liftAntennaMotor = 6;
 	public static int forkliftArmsMotionMotor = 3;
 
-	public static int driveStick = 0;
+	public static int gameControllerUsbDeviceNumber = 0;
+	public static int leftDriveStickUsbDeviceNumber = 3;
+	public static int rightDriveStickUsbDeviceNumber = 4;
 	
-	public static int driveStickAxis1 = 1;
-	public static int driveStickAxis2 = 3;
+	
+	public static int gameControllerLeftStickYAxis = 1;
+	public static int gameControllerRightStickYAxis = 3;
 
 public static int ballDoorServoPort = 5;
 

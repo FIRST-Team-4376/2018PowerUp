@@ -15,20 +15,35 @@ public class ChassisSubsystem extends Subsystem {
 	// here. Call these from Commands.
 	public RobotDrive chassis;
 	public int lastEncoderValue = 0;
-	Joystick stick = new Joystick(RobotMap.driveStick);
+	Joystick gameController = new Joystick(RobotMap.gameControllerUsbDeviceNumber);
+	Joystick leftDriveStick = new Joystick(RobotMap.leftDriveStickUsbDeviceNumber);
+	Joystick rightDriveStick = new Joystick(RobotMap.rightDriveStickUsbDeviceNumber);
 	public boolean lastEncoderDirection = false;
 	public int testCounter = 0;
 	public ChassisSubsystem(){
-         
+
 		chassis = new RobotDrive(RobotMap.frontLeftMotor, RobotMap.frontRightMotor);
 //		chassis = new RobotDrive(RobotMap.leftMotor, RobotMap.rightMotor);
 //		lastEncoderValue = Robot.testEncoder.get();
-//		lastEncoderDirection = Robot.testEncoder.getDirection(); 
+//		lastEncoderDirection = Robot.testEncoder.getDirection();
 	}
 
 	public void driveMe(){
-		double leftjoystickY = stick.getRawAxis(RobotMap.driveStickAxis1);
-		double rightjoystickY = stick.getRawAxis(RobotMap.driveStickAxis2);   
+		
+		//////////////////// ONLY 1 OF THE FOLLOWING TWO SECTIONS CAN BE UN-COMMENTED ///////////////////////////////////////////
+		
+		 // Section 1 -> Use the two sticks on the Logitech game controller as tank drive inputs
+		 // double leftjoystickY = gameController.getRawAxis(RobotMap.gameControllerLeftStickYAxis);
+		 // double rightjoystickY = gameController.getRawAxis(RobotMap.gameControllerRightStickYAxis);
+
+		
+		// Section 2 -> Use dual separate full-sized joysticks as tank drive inputs
+		double leftjoystickY = leftDriveStick.getY();
+		double rightjoystickY = rightDriveStick.getY();
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 		// .5 is multiplying the axis value by half so it doesn't go too fast
 		chassis.tankDrive(-.75 * leftjoystickY, -.75 * rightjoystickY);
 		System.out.println("get; " + Robot.forkliftEncoder.get());

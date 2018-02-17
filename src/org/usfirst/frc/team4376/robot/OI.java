@@ -51,7 +51,7 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	
-	public Joystick driveStick;
+	public Joystick gameControllerUsbDeviceNumber;
 	public Button armsUp;
 	public Button armsDown;
 	public Button liftBot;
@@ -59,19 +59,19 @@ public class OI {
 	
 	public OI() {
 		
-		driveStick = new Joystick(RobotMap.driveStick);
+		gameControllerUsbDeviceNumber = new Joystick(RobotMap.gameControllerUsbDeviceNumber);
 
-		JoystickButton armsUp = new JoystickButton(driveStick, 4);
-		JoystickButton armsDown = new JoystickButton(driveStick, 2);
-		JoystickButton armsOpen = new JoystickButton(driveStick, 1);
-		JoystickButton armsClose = new JoystickButton(driveStick, 3);
+		JoystickButton armsUp = new JoystickButton(gameControllerUsbDeviceNumber, 4);
+		JoystickButton armsDown = new JoystickButton(gameControllerUsbDeviceNumber, 2);
+		JoystickButton armsOpen = new JoystickButton(gameControllerUsbDeviceNumber, 1);
+		JoystickButton armsClose = new JoystickButton(gameControllerUsbDeviceNumber, 3);
 
-		JoystickButton brakeArms = new JoystickButton(driveStick, 6);
+		JoystickButton brakeArms = new JoystickButton(gameControllerUsbDeviceNumber, 6);
 		
-		JoystickButton liftBot = new JoystickButton(driveStick, 7);
-		JoystickButton lowerBot = new JoystickButton(driveStick, 8);
+		JoystickButton liftBot = new JoystickButton(gameControllerUsbDeviceNumber, 7);
+		JoystickButton lowerBot = new JoystickButton(gameControllerUsbDeviceNumber, 8);
 		
-		JoystickButton servoButton = new JoystickButton(driveStick, 12);
+		JoystickButton servoButton = new JoystickButton(gameControllerUsbDeviceNumber, 12);
 		
 		
 		servoButton.whenPressed(new RandomServoCommand());
