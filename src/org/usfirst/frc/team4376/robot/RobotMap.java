@@ -28,8 +28,8 @@ public class RobotMap {
 
 public static int ballDoorServoPort = 5;
 
-public static int forkliftEncoderA = 6; 
-public static int forkliftEncoderB = 7; 
+public static int clawEncoderA = 6; 
+public static int clawEncoderB = 7; 
 
 public static int forkliftMotionEncoderA = 4; 
 public static int forkliftMotionEncoderB = 5; 

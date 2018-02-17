@@ -23,7 +23,7 @@ public class ForkliftArmsMotionSubsystem extends Subsystem {
 		
 	}
 	public void openArmsToLimit(){
-		if(Robot.forkliftEncoder.get() > -50000){
+		if(Robot.clawEncoder.get() > -50000){
 			forkliftArmsMotionMotor.set(RobotMap.clawOpenSpeed);
 		} else {
 			forkliftArmsMotionMotor.set(0);
@@ -31,7 +31,7 @@ public class ForkliftArmsMotionSubsystem extends Subsystem {
 	}
 	
 	public  void closeArmsToLimit(){
-		if(Robot.forkliftEncoder.get() < 50000){
+		if(Robot.clawEncoder.get() < 50000){
 			forkliftArmsMotionMotor.set(RobotMap.clawCloseSpeed);
 		} else {
 			forkliftArmsMotionMotor.set(0);

@@ -75,7 +75,7 @@ public class ExampleAuton extends Command {
 //			ForkliftArmsMotionSubsystem.closeArmsToLimit(); 
 	        
 		}
-		else if( Robot.forkliftEncoder.get() <= -50000 ){ 
+		else if( Robot.clawEncoder.get() <= -50000 ){ 
               driveStraightAtAngle(-2.0,0.0); 
 		}
 		else if( Robot.driveMotorL.get() <= -50000 && Robot.driveMotorR.get() <= -50000 ){ 
@@ -113,7 +113,7 @@ public class ExampleAuton extends Command {
 //				ForkliftArmsMotionSubsystem.closeArmsToLimit(); 
 		        
 			}
-			else if( Robot.forkliftEncoder.get() <= -50000 ){ 
+			else if( Robot.clawEncoder.get() <= -50000 ){ 
 	              driveStraightAtAngle(-2.0,0.0); 
 			}
 			else if( Robot.driveMotorL.get() <= -50000 && Robot.driveMotorR.get() <= -50000 ){ 

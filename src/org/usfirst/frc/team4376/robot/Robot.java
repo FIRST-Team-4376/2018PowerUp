@@ -43,10 +43,10 @@ public class Robot extends IterativeRobot {
 	public static final ForkliftArmsSubsystem arms = new ForkliftArmsSubsystem();
 	public static final LiftAntennaSubsystem liftAntenna = new LiftAntennaSubsystem();
 	public static final ForkliftArmsMotionSubsystem motionarm = new ForkliftArmsMotionSubsystem();
-	public static Encoder forkliftEncoder = new Encoder(RobotMap.forkliftEncoderA, RobotMap.forkliftEncoderB, true, Encoder.EncodingType.k4X);
+	public static Encoder clawEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorL = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorR = new Encoder(RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB, true, Encoder.EncodingType.k4X);
-    public static Encoder forkliftMotion =  new Encoder(RobotMap.forkliftMotionEncoderA, RobotMap.forkliftMotionEncoderB, true, Encoder.EncodingType.k4X);
+    public static Encoder forkliftPositionEncoder =  new Encoder(RobotMap.forkliftMotionEncoderA, RobotMap.forkliftMotionEncoderB, true, Encoder.EncodingType.k4X);
     public static AnalogInput clawPressureSensor = new AnalogInput(1);
 	public static ADIS16448_IMU gyro;
 	Command autonomousCommand;
@@ -66,7 +66,7 @@ public class Robot extends IterativeRobot {
 		gyro.reset();
 		gyro.calibrate();
 		Timer timer = new Timer();
-		forkliftEncoder.reset();
+		forkliftPositionEncoder.reset();
 		timer.reset();
 		// some sort of way timing the cameras functionality
 		// Disabled mode.

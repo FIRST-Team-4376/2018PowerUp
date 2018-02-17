@@ -46,10 +46,7 @@ public class ChassisSubsystem extends Subsystem {
 
 		// .5 is multiplying the axis value by half so it doesn't go too fast
 		chassis.tankDrive(-.75 * leftjoystickY, -.75 * rightjoystickY);
-		System.out.println("get; " + Robot.forkliftEncoder.get());
-		System.out.println("getDistance; " + Robot.forkliftEncoder.getDistance());
-		System.out.println("getRaw; " + Robot.forkliftEncoder.getRaw());
-		System.out.println("getDirection; " + Robot.forkliftEncoder.getDirection());
+		System.out.println("Fork Lift Position; " + Robot.forkLiftEncoder.getDistance());
 		System.out.println("GRYO Z: " + Robot.gyro.getAngleZ());
 		}
 	public void tankDrive(double leftSpeed, double rightSpeed){
