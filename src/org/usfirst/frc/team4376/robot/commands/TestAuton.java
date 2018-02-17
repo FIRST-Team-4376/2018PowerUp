@@ -3,8 +3,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TestAuton extends CommandGroup{
 	public TestAuton() {
 		
-		addSequential(new AutonDriveStraightCommand(0.4,688));
-		addSequential(new AutonTurnToAngleCommand(0.4,90)); 
+		// 19.11 inches per EC tick
+		addSequential(new AutonDriveStraightCommand(0.7,1276));
+		addSequential(new AutonDriveStraightCommand(0.4,100));
+
+		addSequential(new AutonTurnToAngleCommand(0.4,90));
+		addSequential(new AutonTurnToAngleCommand(0.4,-270));
+		addSequential(new AutonDriveStraightCommand(0.4, 925));
+		addSequential(new AutonDriveStraightCommand(0.2,400));
+		addSequential(new AutonTurnToAngleCommand(0.4,180));
 		
 	}
 }

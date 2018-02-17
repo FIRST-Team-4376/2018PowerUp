@@ -32,11 +32,12 @@ public class AutonDriveStraightCommand extends Command {
 		double gyroAngle = Robot.gyro.getAngleZ();
 		System.out.println("DRIVE STRAIGHT GYRO ANGLE: " + gyroAngle);
 		System.out.println("DRIVE STRAIGHT TARGET ANGLE: " + targetAngle);
-		double turnFactor = 1.1;
+		double turnFactor = 1.3;
+		double marginOfError = 0.5;
         
-		if(gyroAngle <= (targetAngle+2) && gyroAngle >= (targetAngle-2)){
+		if(gyroAngle <= (targetAngle+marginOfError) && gyroAngle >= (targetAngle-marginOfError)){
 			Robot.chassis.tankDrive(speed, speed); //Bot drives straight
-		} else if(gyroAngle > (targetAngle+2.0)) {
+		} else if(gyroAngle > (targetAngle+marginOfError)) {
 			Robot.chassis.tankDrive(speed, speed * turnFactor); //Turn bot to the left
 		} else {
 			Robot.chassis.tankDrive(speed * turnFactor, speed); //Turn bot to the right

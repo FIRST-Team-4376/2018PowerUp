@@ -22,7 +22,7 @@ public class LiftArmsCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.arms.liftArms();
+		Robot.arms.liftArmsToLimit();
 		
 	}
 
