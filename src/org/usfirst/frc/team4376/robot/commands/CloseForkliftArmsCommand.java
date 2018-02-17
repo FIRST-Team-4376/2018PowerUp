@@ -22,7 +22,8 @@ public class CloseForkliftArmsCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.motionarm.closeArmsToLimit();
+//		Robot.motionarm.closeArmsToLimit();
+		Robot.motionarm.closeArms();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

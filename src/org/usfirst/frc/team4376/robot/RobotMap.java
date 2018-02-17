@@ -38,7 +38,11 @@ public static int driveLeftEncoderA = 0;
 public static int driveLeftEncoderB = 1; 
 
 public static int driveRightEncoderA = 2; 
-public static int driveRightEncoderB = 3; 
+public static int driveRightEncoderB = 3;
+
+////////////// SPEEDS ////////////////
+	public static double clawOpenSpeed = 1.0;
+	public static double clawCloseSpeed = -1.0;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
