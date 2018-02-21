@@ -47,25 +47,24 @@ public class ForkliftArmsMotionSubsystem extends Subsystem {
 		}
 	}
 	
-	public void moveArms(){
-		if (Robot.clawPressureSensor.getVoltage() < 3){
-			recordArmsPosition();
-		}
-		if (armsOpen == true){
-			openArms();
-		} else {
-			closeArms();
-		}
-	}
+//	public void moveArms(){
+//		if (Robot.clawPressureSensor.getVoltage() < 3){
+//			recordArmsPosition();
+//		}
+//		if (armsOpen == true){
+//			openArms();
+//		} else {
+//			closeArms();
+//		}
+//	}
 	
 	
 	
 	
 	public void openArms(){
-		if (Robot.clawPressureSensor.getVoltage() < 3){
-			recordArmsPosition();
+		if(Robot.clawPressureSensor.getVoltage() > .2){
+			forkliftArmsMotionMotor.set(RobotMap.clawOpenSpeed);
 		}
-		forkliftArmsMotionMotor.set(RobotMap.clawOpenSpeed);
 	}
 	
 	public void closeArms(){

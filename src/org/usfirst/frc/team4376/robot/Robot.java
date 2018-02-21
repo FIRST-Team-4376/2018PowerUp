@@ -14,6 +14,7 @@ import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team4376.robot.commands.BasicAutonCommand;
 import org.usfirst.frc.team4376.robot.commands.ExampleAuton;
 import org.usfirst.frc.team4376.robot.commands.TestAuton;
+import org.usfirst.frc.team4376.robot.commands.TestAutonRightScale;
 import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
@@ -27,6 +28,7 @@ import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -47,6 +49,7 @@ public class Robot extends IterativeRobot {
 	public static Encoder driveMotorL = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorR = new Encoder(RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB, true, Encoder.EncodingType.k4X);
     public static Encoder forkliftPositionEncoder =  new Encoder(RobotMap.forkliftMotionEncoderA, RobotMap.forkliftMotionEncoderB, true, Encoder.EncodingType.k4X);
+//    public static DigitalInput clawPressureSensor = new DigitalInput(RobotMap.clawLimitSwitchPort);
     public static AnalogInput clawPressureSensor = new AnalogInput(RobotMap.clawLimitSwitchPort);
 	public static ADIS16448_IMU gyro;
 	Command autonomousCommand;
@@ -59,7 +62,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new TestAuton());
+		chooser.addDefault("Default Auto", new TestAutonRightScale());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();

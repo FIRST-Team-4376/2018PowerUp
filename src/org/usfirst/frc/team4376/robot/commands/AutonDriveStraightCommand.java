@@ -10,10 +10,11 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class AutonDriveStraightCommand extends Command {
 	double speed; 
 	double targetAngle; 
-	double targetDistance; 
-	public AutonDriveStraightCommand(double speedA, double distanceA) {
+	double targetDistance;
+	double encoderCountsPerInch = 19.1;
+	public AutonDriveStraightCommand(double speedA, double distanceInches) {
 		speed = speedA;  
-		targetDistance = distanceA; 
+		targetDistance = distanceInches * encoderCountsPerInch; 
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.chassis);
 	}

@@ -42,9 +42,9 @@ public class RobotMap {
 	public static int driveRightEncoderA = 2;
 	public static int driveRightEncoderB = 3;
 
-	// ANALOG PORTS //////////////////////////////////
+	// analog PORTS //////////////////////////////////
 
-	public static int clawLimitSwitchPort = 3;
+	public static int clawLimitSwitchPort = 2;
 
 	////////////// SPEEDS ////////////////
 	public static double clawOpenSpeed = 1.0;

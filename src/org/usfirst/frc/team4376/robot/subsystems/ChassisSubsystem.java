@@ -51,6 +51,11 @@ public class ChassisSubsystem extends Subsystem {
 		System.out.println("Fork Lift Position GET DISTANCE: " + Robot.forkliftPositionEncoder.getDistance());
 		System.out.println("Fork Lift Position GET DISTANCE per pulse: " + Robot.forkliftPositionEncoder.getDistancePerPulse());
 		System.out.println("Claw Pressure Sensor Voltage: " + Robot.clawPressureSensor.getVoltage());
+		System.out.println("Claw Pressure Sensor Value: " + Robot.clawPressureSensor.getValue());
+//		if (Robot.clawPressureSensor.get()){
+//			System.out.println("Claw Pressure Sensor Digital: TRUE" );
+//		} else { System.out.println("Claw Pressure Sensor Digital: FALSE" ); }
+		
 		System.out.println("LEFT Drive Motor Position: " + Robot.driveMotorL.get());
 		System.out.println("RIGHT Drive Motor Position: " + Robot.driveMotorR.get());
 		System.out.println("GRYO Z: " + Robot.gyro.getAngleZ());
