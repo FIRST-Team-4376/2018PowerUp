@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot {
 	public static Encoder driveMotorL = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorR = new Encoder(RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB, true, Encoder.EncodingType.k4X);
     public static Encoder forkliftPositionEncoder =  new Encoder(RobotMap.forkliftMotionEncoderA, RobotMap.forkliftMotionEncoderB, true, Encoder.EncodingType.k4X);
-    public static AnalogInput clawPressureSensor = new AnalogInput(1);
+    public static AnalogInput clawPressureSensor = new AnalogInput(RobotMap.clawLimitSwitchPort);
 	public static ADIS16448_IMU gyro;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();

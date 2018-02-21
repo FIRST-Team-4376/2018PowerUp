@@ -81,8 +81,6 @@ public class OI {
 		JoystickButton servoButton = new JoystickButton(gameControllerUsbDeviceNumber, 12);
 		
 		
-		
-		
         liftAntenna.whenPressed(new LiftAntennaCommand());
         lowerAntenna.whenPressed(new LowerAntennaCommand());
 

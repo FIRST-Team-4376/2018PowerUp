@@ -23,7 +23,7 @@ public class OpenForkliftArmsCommand extends Command {
 	protected void execute() {
 		
 //		Robot.motionarm.openArmsToLimit();
-		Robot.motionarm.openArms();
+		Robot.motionarm.moveArms();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
