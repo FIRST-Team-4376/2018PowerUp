@@ -6,13 +6,16 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4376.robot.commands.BrakeArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.CloseForkliftArmsCommand;
+import org.usfirst.frc.team4376.robot.commands.LiftAntennaCommand;
 import org.usfirst.frc.team4376.robot.commands.LiftArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LiftBotCommand;
+import org.usfirst.frc.team4376.robot.commands.LowerAntennaCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerBotCommand;
 import org.usfirst.frc.team4376.robot.commands.OpenForkliftArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RandomServoCommand;
 import org.usfirst.frc.team4376.robot.commands.RandomServoDownCommand;
+import org.usfirst.frc.team4376.robot.commands.RestAntennaCommand;
 import org.usfirst.frc.team4376.robot.commands.RestArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RestBotCommand;
 import org.usfirst.frc.team4376.robot.commands.RestForkliftArmsCommand;
@@ -71,8 +74,20 @@ public class OI {
 		JoystickButton liftBot = new JoystickButton(gameControllerUsbDeviceNumber, 7);
 		JoystickButton lowerBot = new JoystickButton(gameControllerUsbDeviceNumber, 8);
 		
+	
+		JoystickButton liftAntenna = new JoystickButton(gameControllerUsbDeviceNumber, 10);
+		JoystickButton lowerAntenna = new JoystickButton(gameControllerUsbDeviceNumber, 9);
+		
 		JoystickButton servoButton = new JoystickButton(gameControllerUsbDeviceNumber, 12);
 		
+		
+		
+		
+        liftAntenna.whenPressed(new LiftAntennaCommand());
+        lowerAntenna.whenPressed(new LowerAntennaCommand());
+
+        liftAntenna.whenReleased(new RestAntennaCommand());
+        lowerAntenna.whenReleased(new RestAntennaCommand());
 		
 		servoButton.whenPressed(new RandomServoCommand());
 		servoButton.whenReleased(new RandomServoDownCommand());
@@ -97,6 +112,8 @@ public class OI {
 		
 		lowerBot.whenPressed(new LowerBotCommand());
 		lowerBot.whenReleased(new RestBotCommand());
+		
+		
 }
 
 

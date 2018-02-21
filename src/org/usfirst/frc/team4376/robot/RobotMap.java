@@ -9,6 +9,9 @@ package org.usfirst.frc.team4376.robot;
 public class RobotMap {
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
+	
+	// limit/pressure switch == analog port 3
+	
 	public static int frontLeftMotor = 0;
 	public static int frontRightMotor = 1;
     
