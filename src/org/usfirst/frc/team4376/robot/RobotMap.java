@@ -16,10 +16,10 @@ public class RobotMap {
 	public static int frontRightMotor = 1;
 
 	public static int liftBotMotor = 4;
-	public static int armLiftMotor = 2;
+	public static int forkLiftUpDownMotorPort = 2;
 	public static int cameraport = 23;
 	public static int liftAntennaMotor = 5;
-	public static int forkliftArmsMotionMotor = 3;
+	public static int forkLiftOpenCloseMotorPort = 3;
 
 	public static int gameControllerUsbDeviceNumber = 0;
 	public static int leftDriveStickUsbDeviceNumber = 3;

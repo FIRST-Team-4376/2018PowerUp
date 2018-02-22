@@ -14,9 +14,9 @@ import org.usfirst.frc.team4376.robot.commands.LowerArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerBotCommand;
 import org.usfirst.frc.team4376.robot.commands.OpenForkliftArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RestAntennaCommand;
-import org.usfirst.frc.team4376.robot.commands.RestArmsCommand;
+import org.usfirst.frc.team4376.robot.commands.RestUpDownArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RestBotCommand;
-import org.usfirst.frc.team4376.robot.commands.RestForkliftArmsCommand;
+import org.usfirst.frc.team4376.robot.commands.RestOpenCloseArmsCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -87,19 +87,19 @@ public class OI {
 		
 		
 		armsUp.whenPressed(new LiftArmsCommand());
-		armsUp.whenReleased(new RestArmsCommand());
+		armsUp.whenReleased(new RestUpDownArmsCommand());
 		
 		armsDown.whenPressed(new LowerArmsCommand());
-		armsDown.whenReleased(new RestArmsCommand());
+		armsDown.whenReleased(new RestUpDownArmsCommand());
 		
 		brakeArms.whenPressed(new BrakeArmsCommand());
-		brakeArms.whenReleased(new RestArmsCommand());
+		brakeArms.whenReleased(new RestUpDownArmsCommand());
 		
 		armsOpen.whenPressed(new OpenForkliftArmsCommand());
-		armsOpen.whenReleased(new RestForkliftArmsCommand());
+		armsOpen.whenReleased(new RestOpenCloseArmsCommand());
 		
 		armsClose.whenPressed(new CloseForkliftArmsCommand());
-		armsClose.whenReleased(new RestForkliftArmsCommand());
+		armsClose.whenReleased(new RestOpenCloseArmsCommand());
 		
 		liftBot.whenPressed(new LiftBotCommand());
 		liftBot.whenReleased(new RestBotCommand());

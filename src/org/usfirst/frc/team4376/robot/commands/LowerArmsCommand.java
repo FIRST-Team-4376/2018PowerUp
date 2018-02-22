@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class LowerArmsCommand extends Command {
 	public LowerArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.arms);
+		requires(Robot.forkLiftSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -21,7 +21,6 @@ public class LowerArmsCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		
 		Robot.arms.lowerArms();
 		
 	}

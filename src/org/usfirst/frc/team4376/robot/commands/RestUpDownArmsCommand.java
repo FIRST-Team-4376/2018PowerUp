@@ -7,10 +7,10 @@ import org.usfirst.frc.team4376.robot.Robot;
 /**
  *
  */
-public class RestForkliftArmsCommand extends Command {
-	public RestForkliftArmsCommand() {
+public class RestUpDownArmsCommand extends Command {
+	public RestUpDownArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.motionarm);
+		requires(Robot.forkLiftSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,8 @@ public class RestForkliftArmsCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.motionarm.restArms();
+		Robot.forkLiftSubsystem.restUpDownArms();
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

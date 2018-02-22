@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class LiftArmsCommand extends Command {
 	public LiftArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.arms);
+		requires(Robot.forkLiftSubsystem);
 	}
 
 	// Called just before this Command runs the first time
