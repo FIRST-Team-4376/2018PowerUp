@@ -18,6 +18,7 @@ public class ChassisSubsystem extends Subsystem {
 	Joystick gameController = new Joystick(RobotMap.gameControllerUsbDeviceNumber);
 	Joystick leftDriveStick = new Joystick(RobotMap.leftDriveStickUsbDeviceNumber);
 	Joystick rightDriveStick = new Joystick(RobotMap.rightDriveStickUsbDeviceNumber);
+	Joystick ericDriveStick = new Joystick(RobotMap.ericDriveStick);
 	public boolean lastEncoderDirection = false;
 	public int testCounter = 0;
 	public ChassisSubsystem(){
@@ -38,8 +39,9 @@ public class ChassisSubsystem extends Subsystem {
 
 		
 		// Section 2 -> Use dual separate full-sized joysticks as tank drive inputs
-		double leftjoystickY = leftDriveStick.getY();
-		double rightjoystickY = rightDriveStick.getY();
+		double leftjoystickY = ericDriveStick.getRawAxis(1);
+		double rightjoystickY = ericDriveStick.getRawAxis(5);
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

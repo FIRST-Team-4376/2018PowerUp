@@ -12,23 +12,13 @@ import org.usfirst.frc.team4376.robot.RobotMap;
 public class LiftSubsystem extends Subsystem {
 
 	Talon liftBotMotor;
-	Servo ballDorrServo;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
 	public LiftSubsystem() {
-		ballDorrServo = new Servo(RobotMap.ballDoorServoPort);
 		liftBotMotor = new Talon(RobotMap.liftBotMotor);
 
 	}
-
-public void servoUp(){
-  ballDorrServo.set(1);
-}
-
-public void servoDown(){
-  ballDorrServo.set(-1);
-}
 
 
 

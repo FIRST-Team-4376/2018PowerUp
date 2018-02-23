@@ -13,8 +13,6 @@ import org.usfirst.frc.team4376.robot.commands.LowerAntennaCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.LowerBotCommand;
 import org.usfirst.frc.team4376.robot.commands.OpenForkliftArmsCommand;
-import org.usfirst.frc.team4376.robot.commands.RandomServoCommand;
-import org.usfirst.frc.team4376.robot.commands.RandomServoDownCommand;
 import org.usfirst.frc.team4376.robot.commands.RestAntennaCommand;
 import org.usfirst.frc.team4376.robot.commands.RestArmsCommand;
 import org.usfirst.frc.team4376.robot.commands.RestBotCommand;
@@ -87,8 +85,6 @@ public class OI {
         liftAntenna.whenReleased(new RestAntennaCommand());
         lowerAntenna.whenReleased(new RestAntennaCommand());
 		
-		servoButton.whenPressed(new RandomServoCommand());
-		servoButton.whenReleased(new RandomServoDownCommand());
 		
 		armsUp.whenPressed(new LiftArmsCommand());
 		armsUp.whenReleased(new RestArmsCommand());
