@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc.team4376.robot.commands.AutonLeft;
+import org.usfirst.frc.team4376.robot.commands.AutonRight;
 import org.usfirst.frc.team4376.robot.commands.BasicAutonCommand;
 import org.usfirst.frc.team4376.robot.commands.ExampleAuton;
 import org.usfirst.frc.team4376.robot.commands.TestAuton;
@@ -66,7 +68,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new TestAutonRightScale());
+		chooser.addDefault("AutonLeft", new AutonLeft());
+		chooser.addObject("AutonRight", new AutonRight());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();
