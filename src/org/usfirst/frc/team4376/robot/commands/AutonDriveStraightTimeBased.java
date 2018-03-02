@@ -12,6 +12,7 @@ public class AutonDriveStraightTimeBased extends Command {
 	
 	private Timer timer;
 	public double startingGyroAngle;
+	public double startingTimerValue;
 	
 	public AutonDriveStraightTimeBased() {
 		// Use requires() here to declare subsystem dependencies
@@ -24,6 +25,7 @@ public class AutonDriveStraightTimeBased extends Command {
 		timer = new Timer();
 		timer.reset();
 		timer.start();
+		startingTimerValue = timer.get();
 		Robot.gyro.calibrate();
 		Robot.gyro.reset();
 		startingGyroAngle = Robot.gyro.getAngleZ();
@@ -32,7 +34,9 @@ public class AutonDriveStraightTimeBased extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		if(timer.get() > 0.0 && timer.get() <= 3.0){
+		double timerValue = Math.abs(timer.get()) - Math.abs(startingTimerValue) ;
+		System.out.println("AUTON - " + timerValue);
+		if(timerValue > 0.0 && timerValue <= 6.0){
 			Robot.chassis.driveStraightAtAngle(startingGyroAngle, .5);
 		}
 		

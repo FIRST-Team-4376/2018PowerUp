@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4376.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4376.robot.Robot;
@@ -9,10 +8,6 @@ import org.usfirst.frc.team4376.robot.Robot;
  *
  */
 public class BasicAutonCommand extends Command {
-	
-	private Timer timer;
-	public double startingGyroAngle;
-	
 	public BasicAutonCommand() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.chassis);
@@ -21,20 +16,13 @@ public class BasicAutonCommand extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		timer = new Timer();
-		timer.reset();
-		timer.start();
-		Robot.gyro.calibrate();
-		Robot.gyro.reset();
-		startingGyroAngle = Robot.gyro.getAngleZ();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		if(timer.get() > 0.0 && timer.get() <= 3.0){
-			Robot.chassis.driveStraightAtAngle(startingGyroAngle, .5);
-		}
+		
+		Robot.chassis.driveMe();
 		
 	}
 

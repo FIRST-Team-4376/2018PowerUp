@@ -25,7 +25,7 @@ public class ForkliftArmsSubsystem extends Subsystem {
 	
 	public void liftArms(){
 		
-		armLiftMotor.set(.75);
+		armLiftMotor.set(1.0);
 	}
 	
 	public void liftArmsToLimit(){
@@ -46,7 +46,7 @@ public class ForkliftArmsSubsystem extends Subsystem {
 	
 	public void lowerArms(){
 		
-		armLiftMotor.set(-.75);
+		armLiftMotor.set(-1.0);
 	}
 	
 	public void restArms(){
