@@ -16,12 +16,11 @@ import org.usfirst.frc.team4376.robot.commands.ExampleAuton;
 import org.usfirst.frc.team4376.robot.commands.TestAuton;
 import org.usfirst.frc.team4376.robot.commands.TestAutonRightScale;
 import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
-import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.PidTurnToAngleSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.PidDriveStraightSubsystem;
-import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.ForkLiftSubsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team4376.sensorlib.ADIS16448_IMU;
 
@@ -46,9 +45,8 @@ public class Robot extends IterativeRobot {
 	public static final PidDriveStraightSubsystem pidDriveStraight = new PidDriveStraightSubsystem();
 	public static OI oi;
 	public static final LiftSubsystem liftBot = new LiftSubsystem();
-	public static final ForkliftArmsSubsystem arms = new ForkliftArmsSubsystem();
 	public static final LiftAntennaSubsystem liftAntenna = new LiftAntennaSubsystem();
-	public static final ForkliftArmsMotionSubsystem motionarm = new ForkliftArmsMotionSubsystem();
+	public static final ForkLiftSubsystem forkLiftSubsystem = new ForkLiftSubsystem();
 	public static Encoder clawEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorL = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, true, Encoder.EncodingType.k4X);
 	public static Encoder driveMotorR = new Encoder(RobotMap.driveRightEncoderA, RobotMap.driveRightEncoderB, true, Encoder.EncodingType.k4X);

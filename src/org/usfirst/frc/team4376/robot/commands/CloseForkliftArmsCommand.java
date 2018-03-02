@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class CloseForkliftArmsCommand extends Command {
 	public CloseForkliftArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.motionarm);
+		requires(Robot.forkLiftSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,8 +22,8 @@ public class CloseForkliftArmsCommand extends Command {
 	@Override
 	protected void execute() {
 		
-//		Robot.motionarm.closeArmsToLimit();
-		Robot.motionarm.closeArms();
+//		Robot.forkLiftSubsystem.closeArmsToLimit();
+		Robot.forkLiftSubsystem.closeArms();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

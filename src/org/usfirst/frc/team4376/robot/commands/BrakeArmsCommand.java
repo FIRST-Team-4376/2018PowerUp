@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class BrakeArmsCommand extends Command {
 	public BrakeArmsCommand() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.arms);
+		requires(Robot.forkLiftSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class BrakeArmsCommand extends Command {
 	@Override
 	protected void execute() {
 		
-		Robot.arms.brakeArms();
+		Robot.forkLiftSubsystem.brakeUpDownArms();
 		
 	}
 

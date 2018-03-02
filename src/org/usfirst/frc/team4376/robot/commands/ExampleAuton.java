@@ -3,7 +3,7 @@ package org.usfirst.frc.team4376.robot.commands;
 import org.usfirst.frc.team4376.robot.Robot;
 import org.usfirst.frc.team4376.robot.RobotMap;
 import org.usfirst.frc.team4376.robot.subsystems.ChassisSubsystem;
-import org.usfirst.frc.team4376.robot.subsystems.ForkliftArmsMotionSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.ForkLiftSubsystem;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -71,8 +71,8 @@ public class ExampleAuton extends Command {
 			turnInPlace(.50,90); 
 		}
 		else if( Robot.gyro.getAngleZ() >= 90 ){
-//			ForkliftArmsMotionSubsystem.openArmsToLimit(); 
-//			ForkliftArmsMotionSubsystem.closeArmsToLimit(); 
+//			ForkLiftSubsystem.openArmsToLimit(); 
+//			ForkLiftSubsystem.closeArmsToLimit(); 
 	        
 		}
 		else if( Robot.clawEncoder.get() <= -50000 ){ 
@@ -109,8 +109,8 @@ public class ExampleAuton extends Command {
 				turnInPlace(.50,90); 
 			}
 			else if(  Robot.gyro.getAngleZ() >= 90){
-//				ForkliftArmsMotionSubsystem.openArmsToLimit(); 
-//				ForkliftArmsMotionSubsystem.closeArmsToLimit(); 
+//				ForkLiftSubsystem.openArmsToLimit(); 
+//				ForkLiftSubsystem.closeArmsToLimit(); 
 		        
 			}
 			else if( Robot.clawEncoder.get() <= -50000 ){ 
