@@ -8,12 +8,12 @@ import org.usfirst.frc.team4376.robot.Robot;
 /**
  *
  */
-public class BasicAutonCommand extends Command {
+public class AutonDriveStraightTimeBased extends Command {
 	
 	private Timer timer;
 	public double startingGyroAngle;
 	
-	public BasicAutonCommand() {
+	public AutonDriveStraightTimeBased() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.chassis);
 	}

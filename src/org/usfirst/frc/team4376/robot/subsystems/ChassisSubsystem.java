@@ -29,6 +29,18 @@ public class ChassisSubsystem extends Subsystem {
 //		lastEncoderDirection = Robot.testEncoder.getDirection();
 	}
 
+	public void driveStraightAtAngle(double targetAngle, double speed){
+		double turnFactor = 1.3;
+		double gyroAngle = Robot.gyro.getAngleZ();
+		if(gyroAngle <= (targetAngle+1) && gyroAngle >= (targetAngle-1)){
+			Robot.chassis.tankDrive(speed, speed); //Bot drives straight
+		} else if(gyroAngle > (targetAngle+1.0)) {
+			Robot.chassis.tankDrive(speed, speed * turnFactor); //Turn bot to the left
+		} else {
+			Robot.chassis.tankDrive(speed * turnFactor, speed); //Turn bot to the right
+		}
+	}
+	
 	public void driveMe(){
 		
 		//////////////////// ONLY 1 OF THE FOLLOWING TWO SECTIONS CAN BE UN-COMMENTED ///////////////////////////////////////////
@@ -48,11 +60,11 @@ public class ChassisSubsystem extends Subsystem {
 
 		// .5 is multiplying the axis value by half so it doesn't go too fast
 		chassis.tankDrive(-.75 * leftjoystickY, -.75 * rightjoystickY);
-		System.out.println("Fork Lift Position: " + Robot.forkliftPositionEncoder.get());
-		System.out.println("Fork Lift Position RAW: " + Robot.forkliftPositionEncoder.getRaw());
-		System.out.println("Fork Lift Position GET DISTANCE: " + Robot.forkliftPositionEncoder.getDistance());
-		System.out.println("Claw Pressure Sensor Voltage: " + Robot.clawPressureSensor.getVoltage());
-		System.out.println("Claw Pressure Sensor Value: " + Robot.clawPressureSensor.getValue());
+//		System.out.println("Fork Lift Position: " + Robot.forkliftPositionEncoder.get());
+//		System.out.println("Fork Lift Position RAW: " + Robot.forkliftPositionEncoder.getRaw());
+//		System.out.println("Fork Lift Position GET DISTANCE: " + Robot.forkliftPositionEncoder.getDistance());
+//		System.out.println("Claw Pressure Sensor Voltage: " + Robot.clawPressureSensor.getVoltage());
+//		System.out.println("Claw Pressure Sensor Value: " + Robot.clawPressureSensor.getValue());
 //		if (Robot.clawPressureSensor.get()){
 //			System.out.println("Claw Pressure Sensor Digital: TRUE" );
 //		} else { System.out.println("Claw Pressure Sensor Digital: FALSE" ); }
