@@ -24,7 +24,7 @@ public class PidDriveStraightSubsystem extends PIDSubsystem {
 	}
 
 	protected double returnPIDInput(){
-		return Robot.driveMotorL.get();
+		return Robot.driveMotorR.get();
 	}
 	
 	protected void usePIDOutput(double output){

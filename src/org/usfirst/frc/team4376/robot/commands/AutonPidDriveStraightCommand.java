@@ -20,7 +20,7 @@ public class AutonPidDriveStraightCommand extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.driveMotorL.reset();
+		Robot.driveMotorR.reset();
 		Robot.gyro.reset();
 		Robot.pidDriveStraight.setOutputRange(-.5, .5);
 		Robot.pidDriveStraight.setSetpoint(targetDistance);
@@ -36,8 +36,8 @@ public class AutonPidDriveStraightCommand extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if ((targetDistance - marginOfError) < Robot.driveMotorL.get() &&
-				Robot.driveMotorL.get() < (targetDistance + marginOfError)){
+		if ((targetDistance - marginOfError) < Robot.driveMotorR.get() &&
+				Robot.driveMotorR.get() < (targetDistance + marginOfError)){
 			return true;
 		} else { return false; }
 	}

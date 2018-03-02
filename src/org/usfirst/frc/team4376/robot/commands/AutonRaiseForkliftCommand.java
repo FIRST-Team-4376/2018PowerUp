@@ -11,12 +11,11 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class AutonRaiseForkliftCommand extends Command {
   public double speed; 
   public double duration;
-  public Timer timer;
+  private Timer timer;
 
   public AutonRaiseForkliftCommand(double speedA, double numberOfSeconds) {
     speed = speedA;  
     duration = numberOfSeconds;
-    timer = new Timer();
     // Use requires() here to declare subsystem dependencies
     requires(Robot.chassis);
   }
@@ -24,6 +23,7 @@ public class AutonRaiseForkliftCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+	timer = new Timer();
     timer.reset();
     timer.start();
   }
@@ -31,7 +31,9 @@ public class AutonRaiseForkliftCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if( timer.get() <= duration){
+	  System.out.println("duration " + duration);
+	  System.out.println("forklift auton timer " + timer.get());
+    if( timer.get() > 0.0 && timer.get() < duration){
       Robot.forkLiftSubsystem.liftArms(speed);
     }
   }
@@ -39,21 +41,19 @@ public class AutonRaiseForkliftCommand extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected  boolean isFinished() {
-    return timer.get() >= duration;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    timer.stop();
-    timer.reset();
+
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    timer.stop();
-    timer.reset();
+
   }
 }

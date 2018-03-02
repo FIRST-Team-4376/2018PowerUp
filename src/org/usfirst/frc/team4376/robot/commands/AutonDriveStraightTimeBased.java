@@ -22,9 +22,9 @@ public class AutonDriveStraightTimeBased extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		startingTimerValue = timer.get();
 		startingGyroAngle = Robot.gyro.getAngleZ();
 		timer = new Timer();
+		startingTimerValue = timer.get();
 		timer.reset();
 		timer.start();
 	}
@@ -36,7 +36,7 @@ public class AutonDriveStraightTimeBased extends Command {
 		System.out.println("AUTON STARTING TIMER VALUE " + startingTimerValue);
 		System.out.println("AUTON TIMER dot GET " + timer.get());
 		System.out.println("AUTON TIMER VALUE " + timerValue);
-		if(timerValue > 0.0 && timerValue <= 6.0){
+		if(timerValue > 0.0 && timerValue <= 3.0){
 			Robot.chassis.driveStraightAtAngle(startingGyroAngle, .7);
 		}
 		
