@@ -37,7 +37,7 @@ public class AutonDriveStraightTimeBased extends Command {
 		System.out.println("AUTON TIMER dot GET " + timer.get());
 		System.out.println("AUTON TIMER VALUE " + timerValue);
 		if(timerValue > 0.0 && timerValue <= 3.0){
-			Robot.chassis.driveStraightAtAngle(startingGyroAngle, .7);
+			Robot.chassis.driveStraightAtAngle(startingGyroAngle, .6);
 		}
 		
 	}

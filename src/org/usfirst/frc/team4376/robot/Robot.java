@@ -33,6 +33,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -57,6 +58,8 @@ public class Robot extends IterativeRobot {
 //    public static DigitalInput clawPressureSensor = new DigitalInput(RobotMap.clawLimitSwitchPort);
     public static AnalogInput clawPressureSensor = new AnalogInput(RobotMap.clawLimitSwitchPort);
 	public static ADIS16448_IMU gyro;
+
+	public static String gameData;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -68,8 +71,8 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser.addDefault("Cross Grey Line Time Based", new TestAuton());
-//		chooser.addDefault("AutonLeft", new AutonLeft());
-//		chooser.addObject("AutonRight", new AutonRight());
+		chooser.addDefault("Left Starting Position", new AutonLeft());
+		chooser.addObject("Right Starting Position", new AutonRight());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();
@@ -110,6 +113,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+//		SmartDashboard.putString("autonGameData", DriverStation.getInstance().getGameSpecificMessage());
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+
 		autonomousCommand = chooser.getSelected();
 
 		/*
