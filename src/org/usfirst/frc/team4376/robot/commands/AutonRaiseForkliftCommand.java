@@ -32,21 +32,24 @@ public class AutonRaiseForkliftCommand extends Command {
   @Override
   protected void execute() {
 	  System.out.println("duration " + duration);
-	  System.out.println("forklift auton timer " + timer.get());
+	  System.out.println("forklift raise  auton timer " + timer.get());
     if( timer.get() > 0.0 && timer.get() < duration){
       Robot.forkLiftSubsystem.liftArms(speed);
+    } else {
+    	Robot.forkLiftSubsystem.restUpDownArms();
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected  boolean isFinished() {
-    return false;
+    return timer.get() > duration;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+	  Robot.forkLiftSubsystem.restUpDownArms();
 
   }
 
@@ -54,6 +57,7 @@ public class AutonRaiseForkliftCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+	  end();
 
   }
 }

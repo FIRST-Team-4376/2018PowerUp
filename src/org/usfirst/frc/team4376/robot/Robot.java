@@ -67,7 +67,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Cross Grey Line Time Based", new AutonDriveStraightTimeBased());
+		chooser.addDefault("Cross Grey Line Time Based", new TestAuton());
 //		chooser.addDefault("AutonLeft", new AutonLeft());
 //		chooser.addObject("AutonRight", new AutonRight());
 		// chooser.addObject("My Auto", new MyAutoCommand());

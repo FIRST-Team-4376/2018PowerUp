@@ -33,6 +33,8 @@ public class AutonLowerForkliftCommand extends Command {
   protected void execute() {
 	if( timer.get() <= duration){
       Robot.forkLiftSubsystem.lowerArms(speed);
+	} else {
+		Robot.forkLiftSubsystem.restUpDownArms();
 	}
   }
 
@@ -45,6 +47,7 @@ public class AutonLowerForkliftCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+	 Robot.forkLiftSubsystem.restUpDownArms();
     timer.stop();
     timer.reset();
   }
@@ -53,7 +56,6 @@ public class AutonLowerForkliftCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    timer.stop();
-    timer.reset();
+	  end();
   }
 }

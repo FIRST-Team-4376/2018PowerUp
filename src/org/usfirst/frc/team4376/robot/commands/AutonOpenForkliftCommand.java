@@ -16,7 +16,6 @@ public class AutonOpenForkliftCommand extends Command {
   public AutonOpenForkliftCommand(double speedA, double numberOfSeconds) {
     speed = speedA;  
     duration = numberOfSeconds;
-    timer = new Timer();
     // Use requires() here to declare subsystem dependencies
     requires(Robot.chassis);
   }
@@ -24,6 +23,7 @@ public class AutonOpenForkliftCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+	  timer = new Timer();
 	  timer.reset();
 	  timer.start();
   }
@@ -31,7 +31,13 @@ public class AutonOpenForkliftCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-	  Robot.forkLiftSubsystem.openArms(speed);
+	  System.out.println("forklift open timer " + timer.get());
+	  System.out.println("forklift open target duration " + duration);
+	  if( timer.get() <= duration){
+		  Robot.forkLiftSubsystem.openArms(speed);
+	  } else {
+		  Robot.forkLiftSubsystem.restOpenCloseArms();
+	  }
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +49,7 @@ public class AutonOpenForkliftCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+	  Robot.forkLiftSubsystem.restOpenCloseArms();
 	  timer.stop();
 	  timer.reset();
   }
@@ -51,7 +58,6 @@ public class AutonOpenForkliftCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-	  timer.stop();
-	  timer.reset();
+	  end();
   }
 }

@@ -64,8 +64,8 @@ public class OI {
 
 		JoystickButton armsUp = new JoystickButton(gameControllerUsbDeviceNumber, 4);
 		JoystickButton armsDown = new JoystickButton(gameControllerUsbDeviceNumber, 1);
-		JoystickButton armsOpen = new JoystickButton(gameControllerUsbDeviceNumber, 2);
-		JoystickButton armsClose = new JoystickButton(gameControllerUsbDeviceNumber, 3);
+		JoystickButton armsOpen = new JoystickButton(gameControllerUsbDeviceNumber, 3);
+		JoystickButton armsClose = new JoystickButton(gameControllerUsbDeviceNumber, 2);
 
 		JoystickButton brakeArms = new JoystickButton(gameControllerUsbDeviceNumber, 6);
 		
