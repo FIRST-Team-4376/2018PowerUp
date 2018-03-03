@@ -61,7 +61,7 @@ public class Robot extends IterativeRobot {
 
 	public static String gameData;
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	SendableChooser<String> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -71,10 +71,10 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 //		chooser.addDefault("Cross Grey Line Time Based", new AutonDriveStraightTimeBased());
-		chooser.addDefault("Cross Grey Line Time Based", new AutonDriveStraightTimeBased());
+		chooser.addDefault("Cross Grey Line Time Based", "1");
 		
-		chooser.addDefault("Left Starting Position", new AutonLeft());
-		chooser.addObject("Right Starting Position", new AutonRight());
+		chooser.addDefault("Left Starting Position", "2");
+		chooser.addObject("Right Starting Position", "3");
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();
@@ -117,7 +117,18 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		SmartDashboard.putString("autonGameData", DriverStation.getInstance().getGameSpecificMessage());
 //		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		autonomousCommand = chooser.getSelected();
+		
+		if(chooser.getSelected() == "1"){
+			autonomousCommand = new AutonDriveStraightTimeBased();
+			
+		} else if (chooser.getSelected() == "2"){
+			autonomousCommand = new AutonLeft(DriverStation.getInstance().getGameSpecificMessage());
+			
+		} else if(chooser.getSelected() == "3"){
+			autonomousCommand = new AutonRight(DriverStation.getInstance().getGameSpecificMessage());
+			
+		}
+//		autonomousCommand = chooser.getSelected(DriverStation.getInstance().getGameSpecificMessage());
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
