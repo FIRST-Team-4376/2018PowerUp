@@ -16,6 +16,13 @@ public class AutonPidDriveStraightCommand extends Command {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.chassis);
 	}
+	
+	public AutonPidDriveStraightCommand(double distanceInches, double maxSpeed) {
+		targetDistance = distanceInches * 19.1;
+		speed = maxSpeed;
+		// Use requires() here to declare subsystem dependencies
+		requires(Robot.chassis);
+	}
 
 	// Called just before this Command runs the first time
 	@Override

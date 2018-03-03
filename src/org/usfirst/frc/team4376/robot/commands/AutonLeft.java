@@ -11,10 +11,10 @@ public class AutonLeft extends CommandGroup{
 	//String gameData = SmartDashboard.getData("autonGameData");
     addSequential(new AutonPidDriveStraightCommand(160.5));
     addSequential(new AutonPidTurnToAngleCommand(90.0));
-    addSequential(new AutonRaiseForkliftCommand(.75, 1.5));
+    addSequential(new AutonRaiseForkliftCommand(1.0, 2.0));
     if(gameData.length() > 0){
       if(gameData.charAt(0) == 'L'){
-        addSequential(new AutonPidDriveStraightCommand(13.5));
+        addSequential(new AutonPidDriveStraightCommand(18.5, .6));
         addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));
       }
     }
