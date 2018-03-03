@@ -7,8 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutonLeft extends CommandGroup{
   public AutonLeft() {
-	String gameData = Robot.gameData;
-//	SmartDashboard.getData("autonGameData");
+//	String gameData = Robot.gameData;
+	//String gameData = SmartDashboard.getData("autonGameData");
+	String gameData = SmartDashboard.getString("autonGameData", "");
     addSequential(new AutonPidDriveStraightCommand(160.5));
     addSequential(new AutonPidTurnToAngleCommand(90.0));
     addSequential(new AutonRaiseForkliftCommand(.75, 1.5));

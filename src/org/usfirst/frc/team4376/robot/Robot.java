@@ -70,7 +70,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Cross Grey Line Time Based", new TestAuton());
+//		chooser.addDefault("Cross Grey Line Time Based", new AutonDriveStraightTimeBased());
+		chooser.addDefault("Cross Grey Line Time Based", new AutonDriveStraightTimeBased());
+		
 		chooser.addDefault("Left Starting Position", new AutonLeft());
 		chooser.addObject("Right Starting Position", new AutonRight());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -113,9 +115,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-//		SmartDashboard.putString("autonGameData", DriverStation.getInstance().getGameSpecificMessage());
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-
+		SmartDashboard.putString("autonGameData", DriverStation.getInstance().getGameSpecificMessage());
+//		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		autonomousCommand = chooser.getSelected();
 
 		/*
