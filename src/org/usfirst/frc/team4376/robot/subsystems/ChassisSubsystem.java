@@ -69,9 +69,10 @@ public class ChassisSubsystem extends Subsystem {
 //			System.out.println("Claw Pressure Sensor Digital: TRUE" );
 //		} else { System.out.println("Claw Pressure Sensor Digital: FALSE" ); }
 		
-		System.out.println("LEFT Drive Motor Position: " + Robot.driveMotorL.get());
-		System.out.println("RIGHT Drive Motor Position: " + Robot.driveMotorR.get());
-		System.out.println("GRYO Z: " + Robot.gyro.getAngleZ());
+//		System.out.println("LEFT Drive Motor Position: " + Robot.driveMotorL.get());
+//		System.out.println("RIGHT Drive Motor Position: " + Robot.driveMotorR.get());
+//		System.out.println("FORKLIFT Position: " + Robot.forkliftPositionEncoder.get());
+//		System.out.println("GRYO Z: " + Robot.gyro.getAngleZ());
 		}
 	public void tankDrive(double leftSpeed, double rightSpeed){
 		chassis.tankDrive(leftSpeed, rightSpeed);

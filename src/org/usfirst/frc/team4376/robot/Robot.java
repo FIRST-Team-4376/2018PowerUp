@@ -14,6 +14,7 @@ import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team4376.robot.commands.AutonDriveStraightTimeBased;
 import org.usfirst.frc.team4376.robot.commands.AutonLeft;
 import org.usfirst.frc.team4376.robot.commands.AutonRight;
+import org.usfirst.frc.team4376.robot.commands.AutonRightScale;
 import org.usfirst.frc.team4376.robot.commands.BasicAutonCommand;
 import org.usfirst.frc.team4376.robot.commands.ExampleAuton;
 import org.usfirst.frc.team4376.robot.commands.TestAuton;
@@ -23,6 +24,7 @@ import org.usfirst.frc.team4376.robot.subsystems.LiftAntennaSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.LiftSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.PidTurnToAngleSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.PidDriveStraightSubsystem;
+import org.usfirst.frc.team4376.robot.subsystems.PidForkliftSubsystem;
 import org.usfirst.frc.team4376.robot.subsystems.ForkLiftSubsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team4376.sensorlib.ADIS16448_IMU;
@@ -47,6 +49,7 @@ public class Robot extends IterativeRobot {
 	public static final ChassisSubsystem chassis = new ChassisSubsystem();
 	public static final PidTurnToAngleSubsystem pidTurnToAngle = new PidTurnToAngleSubsystem();
 	public static final PidDriveStraightSubsystem pidDriveStraight = new PidDriveStraightSubsystem();
+	public static final PidForkliftSubsystem pidForklift = new PidForkliftSubsystem();
 	public static OI oi;
 	public static final LiftSubsystem liftBot = new LiftSubsystem();
 	public static final LiftAntennaSubsystem liftAntenna = new LiftAntennaSubsystem();
@@ -75,6 +78,7 @@ public class Robot extends IterativeRobot {
 		
 		chooser.addDefault("Left Starting Position", "2");
 		chooser.addObject("Right Starting Position", "3");
+		chooser.addObject("Right Starting Position SCALE", "4");
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();
@@ -127,6 +131,8 @@ public class Robot extends IterativeRobot {
 		} else if(chooser.getSelected() == "3"){
 			autonomousCommand = new AutonRight(DriverStation.getInstance().getGameSpecificMessage());
 			
+		} else if(chooser.getSelected() == "4"){
+			autonomousCommand = new AutonRightScale(DriverStation.getInstance().getGameSpecificMessage());
 		}
 //		autonomousCommand = chooser.getSelected(DriverStation.getInstance().getGameSpecificMessage());
 
