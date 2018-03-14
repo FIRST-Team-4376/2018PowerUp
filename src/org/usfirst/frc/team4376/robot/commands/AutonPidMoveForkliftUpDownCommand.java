@@ -31,7 +31,7 @@ public class AutonPidMoveForkliftUpDownCommand extends Command {
 		Robot.forkliftPositionEncoder.reset();
 		Robot.driveMotorR.reset();
 		Robot.gyro.reset();
-		Robot.pidForklift.setOutputRange(-speed, speed);
+		Robot.pidForklift.setOutputRange(speed * -1.0, speed);
 		Robot.pidForklift.setSetpoint(targetDistance);
 		Robot.pidForklift.setAbsoluteTolerance(marginOfError);
 		Robot.pidForklift.enable();

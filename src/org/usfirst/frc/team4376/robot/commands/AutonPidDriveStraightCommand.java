@@ -13,6 +13,7 @@ public class AutonPidDriveStraightCommand extends Command {
 	double marginOfError = 10;
 	public AutonPidDriveStraightCommand(double distanceInches) {
 		targetDistance = distanceInches * 19.1;
+		speed = .6;
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.chassis);
 	}
@@ -29,7 +30,7 @@ public class AutonPidDriveStraightCommand extends Command {
 	protected void initialize() {
 		Robot.driveMotorR.reset();
 		Robot.gyro.reset();
-		Robot.pidDriveStraight.setOutputRange(-.5, .5);
+		Robot.pidDriveStraight.setOutputRange(speed * -1, speed);
 		Robot.pidDriveStraight.setSetpoint(targetDistance);
 		Robot.pidDriveStraight.setAbsoluteTolerance(marginOfError);
 		Robot.pidDriveStraight.enable();

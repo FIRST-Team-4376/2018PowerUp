@@ -76,9 +76,10 @@ public class Robot extends IterativeRobot {
 //		chooser.addDefault("Cross Grey Line Time Based", new AutonDriveStraightTimeBased());
 		chooser.addDefault("Cross Grey Line Time Based", "1");
 		
-		chooser.addDefault("Left Starting Position", "2");
+		chooser.addObject("Left Starting Position", "2");
 		chooser.addObject("Right Starting Position", "3");
 		chooser.addObject("Right Starting Position SCALE", "4");
+		chooser.addObject("TestAuton", "5");
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();
@@ -133,6 +134,8 @@ public class Robot extends IterativeRobot {
 			
 		} else if(chooser.getSelected() == "4"){
 			autonomousCommand = new AutonRightScale(DriverStation.getInstance().getGameSpecificMessage());
+		} else if(chooser.getSelected() == "5"){
+			autonomousCommand = new TestAuton(DriverStation.getInstance().getGameSpecificMessage());
 		}
 //		autonomousCommand = chooser.getSelected(DriverStation.getInstance().getGameSpecificMessage());
 

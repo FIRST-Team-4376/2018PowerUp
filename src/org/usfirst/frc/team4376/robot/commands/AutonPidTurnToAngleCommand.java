@@ -10,9 +10,16 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class AutonPidTurnToAngleCommand extends Command {
 	double speed; 
 	double targetAngle; 
-	double marginOfError = 1.0;
+	double marginOfError = 2.0;
 	public AutonPidTurnToAngleCommand(double angleA) {
 		targetAngle = angleA; 
+		// Use requires() here to declare subsystem dependencies
+		requires(Robot.chassis);
+	}
+	
+	public AutonPidTurnToAngleCommand(double angleA, double marginOfErrorA) {
+		targetAngle = angleA;
+		marginOfError = marginOfErrorA;
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.chassis);
 	}
@@ -21,7 +28,7 @@ public class AutonPidTurnToAngleCommand extends Command {
 	@Override
 	protected void initialize() {
 		Robot.gyro.reset();
-		Robot.pidTurnToAngle.setOutputRange(-.8, .8);
+		Robot.pidTurnToAngle.setOutputRange(-0.6, 0.6);
 		Robot.pidTurnToAngle.setSetpoint(targetAngle);
 		Robot.pidTurnToAngle.setAbsoluteTolerance(marginOfError);
 		Robot.pidTurnToAngle.enable();

@@ -7,14 +7,28 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutonRight extends CommandGroup{
   public AutonRight(String gameData) {
-	    addSequential(new AutonPidDriveStraightCommand(160.5));
-	    addSequential(new AutonPidTurnToAngleCommand(-90.0));
-	    addSequential(new AutonRaiseForkliftCommand(1.0, 2.0));
+	    
+	    
+	    //addSequential(new AutonRaiseForkliftCommand(1.0, 2.0));
+	    
 	    if(gameData.length() > 0){
 	      if(gameData.charAt(0) == 'R'){
-	        addSequential(new AutonPidDriveStraightCommand(18.5, .6));
+	    	addSequential(new AutonPidDriveStraightCommand(166.5));
+	    	addSequential(new AutonPidTurnToAngleCommand(-90.0, 1.5));
+	    	addSequential(new AutonPidMoveForkliftUpDownCommand(2342, RobotMap.forkLiftUpSpeed));
+	        addSequential(new AutonPidDriveStraightCommand(24.5, .6));
 	        addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));
+	      } else {
+	    	  addSequential(new AutonPidDriveStraightCommand(289.0));
+	    	  addSequential(new AutonPidMoveForkliftUpDownCommand(4500, RobotMap.forkLiftUpSpeed));
+	    	  addSequential(new AutonPidTurnToAngleCommand(-90.0, 1.0));
+//	    	  addSequential(new AutonPidDriveStraightCommand(-12.0, .6));
+	    	  
+	    	  addSequential(new AutonPidDriveStraightCommand(15.5, .6));
+	    	  addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));
 	      }
+	    } else {
+	    	addSequential(new AutonPidDriveStraightCommand(166.5));
 	    }
   }
 }

@@ -116,12 +116,12 @@ public class ForkLiftSubsystem extends Subsystem {
 
 	public void liftArms(){
 		
-		forkLiftUpDownMotor.set(.75);
+		forkLiftUpDownMotor.set(RobotMap.forkLiftUpSpeed);
 	}
 	
 	public void lowerArms(){
 		
-		forkLiftUpDownMotor.set(.75);
+		forkLiftUpDownMotor.set(RobotMap.forkLiftDownSpeed);
 	}
 
 	public void liftArmsToLimit(){

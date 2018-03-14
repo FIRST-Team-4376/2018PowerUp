@@ -16,7 +16,8 @@ public class PidDriveStraightSubsystem extends PIDSubsystem {
 	// here. Call these from Commands.
 	public double motorBreakFactor = 0.05;
 	public double targetAngle = 0.0;
-	public double turnFactor = 1.3;
+	public double turnFactor = 1.15;
+	public double marginOfError = 1.0;
 	
 
 	public PidDriveStraightSubsystem(){
@@ -40,12 +41,21 @@ public class PidDriveStraightSubsystem extends PIDSubsystem {
 			output = output + motorBreakFactor;
 		}
 		
-		if(gyroAngle <= (targetAngle+1) && gyroAngle >= (targetAngle-1)){
+		if(gyroAngle <= (targetAngle+marginOfError) && gyroAngle >= (targetAngle-marginOfError)){
 			Robot.chassis.tankDrive(output, output); //Bot drives straight
-		} else if(gyroAngle > (targetAngle+1.0)) {
-			Robot.chassis.tankDrive(output, output * turnFactor); //Turn bot to the left
+		} else if(gyroAngle > (targetAngle+marginOfError)) {
+			if (output < 0.0){
+				Robot.chassis.tankDrive(output * turnFactor, output); //Turn bot to the left
+			} else {
+				Robot.chassis.tankDrive(output, output * turnFactor); //Turn bot to the left
+			}
+			
 		} else {
-			Robot.chassis.tankDrive(output * turnFactor, output); //Turn bot to the right
+			if (output < 0.0){
+				Robot.chassis.tankDrive(output, output * turnFactor); //Turn bot to the left
+			} else {
+				Robot.chassis.tankDrive(output * turnFactor, output); //Turn bot to the left
+			}
 		}
 		
 	}

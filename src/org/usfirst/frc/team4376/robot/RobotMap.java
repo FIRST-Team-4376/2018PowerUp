@@ -51,6 +51,8 @@ public class RobotMap {
 	////////////// SPEEDS ////////////////
 	public static double clawOpenSpeed = 1.0;
 	public static double clawCloseSpeed = -1.0;
+	public static double forkLiftUpSpeed = .75;
+	public static double forkLiftDownSpeed = -.75;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
