@@ -11,9 +11,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc.team4376.robot.commands.AutonCenter;
 import org.usfirst.frc.team4376.robot.commands.AutonDriveStraightTimeBased;
 import org.usfirst.frc.team4376.robot.commands.AutonLeft;
+import org.usfirst.frc.team4376.robot.commands.AutonLeftPrioritizeScale;
 import org.usfirst.frc.team4376.robot.commands.AutonRight;
+import org.usfirst.frc.team4376.robot.commands.AutonRightPrioritizeScale;
 import org.usfirst.frc.team4376.robot.commands.AutonRightScale;
 import org.usfirst.frc.team4376.robot.commands.BasicAutonCommand;
 import org.usfirst.frc.team4376.robot.commands.ExampleAuton;
@@ -78,8 +81,10 @@ public class Robot extends IterativeRobot {
 		
 		chooser.addObject("Left Starting Position", "2");
 		chooser.addObject("Right Starting Position", "3");
-		chooser.addObject("Right Starting Position SCALE", "4");
-		chooser.addObject("TestAuton", "5");
+
+		chooser.addObject("Center Starting Position", "5");
+		chooser.addObject("Left Starting PRIORITIZE SCALE", "6");
+		chooser.addObject("Right Starting PRIORITIZE SCALE", "7");
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		gyro = new ADIS16448_IMU();
@@ -132,10 +137,14 @@ public class Robot extends IterativeRobot {
 		} else if(chooser.getSelected() == "3"){
 			autonomousCommand = new AutonRight(DriverStation.getInstance().getGameSpecificMessage());
 			
-		} else if(chooser.getSelected() == "4"){
-			autonomousCommand = new AutonRightScale(DriverStation.getInstance().getGameSpecificMessage());
+		// } else if(chooser.getSelected() == "4"){
+		// 	autonomousCommand = new AutonRightScale(DriverStation.getInstance().getGameSpecificMessage());
 		} else if(chooser.getSelected() == "5"){
-			autonomousCommand = new TestAuton(DriverStation.getInstance().getGameSpecificMessage());
+			autonomousCommand = new AutonCenter(DriverStation.getInstance().getGameSpecificMessage());
+		} else if(chooser.getSelected() == "6"){
+			autonomousCommand = new AutonLeftPrioritizeScale(DriverStation.getInstance().getGameSpecificMessage());
+		} else if(chooser.getSelected() == "7"){
+			autonomousCommand = new AutonRightPrioritizeScale(DriverStation.getInstance().getGameSpecificMessage());
 		}
 //		autonomousCommand = chooser.getSelected(DriverStation.getInstance().getGameSpecificMessage());
 
