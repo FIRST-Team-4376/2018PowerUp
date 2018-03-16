@@ -8,19 +8,19 @@ public class AutonCenter extends CommandGroup{
       if(gameData.charAt(0) == 'R'){
         // This starts from center and puts it in the right switch
         addSequential(new AutonPidDriveStraightCommand(43));
-        addSequential(new AutonPidTurnToAngleCommand(45.0, 1.0));
+        addSequential(new AutonPidTurnToAngleCommand(45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(54));
         addSequential(new AutonPidMoveForkliftUpDownCommand(2342, RobotMap.forkLiftUpSpeed));
-        addSequential(new AutonPidTurnToAngleCommand(-45.0, 1.0));
+        addSequential(new AutonPidTurnToAngleCommand(-45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(30));
         addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));
       } else {
         // This starts from center and puts it in the right switch
         addSequential(new AutonPidDriveStraightCommand(43));
-        addSequential(new AutonPidTurnToAngleCommand(-45.0, 1.0));
+        addSequential(new AutonPidTurnToAngleCommand(-45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(54));
         addSequential(new AutonPidMoveForkliftUpDownCommand(2342, RobotMap.forkLiftUpSpeed));
-        addSequential(new AutonPidTurnToAngleCommand(45.0, 1.0));
+        addSequential(new AutonPidTurnToAngleCommand(45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(30));
         addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));
       }
