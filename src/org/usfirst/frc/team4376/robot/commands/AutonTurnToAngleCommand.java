@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class AutonTurnToAngleCommand extends Command {
 	double speed; 
 	double targetAngle; 
-	double marginOfError = 0.5;
+	double marginOfError = 2.0;
 	public AutonTurnToAngleCommand(double speedA, double angleA) {
 		speed = speedA;  
 		targetAngle = angleA; 

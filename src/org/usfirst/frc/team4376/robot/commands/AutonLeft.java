@@ -18,7 +18,8 @@ public class AutonLeft extends CommandGroup{
         // go for scale
         addSequential(new AutonPidDriveStraightCommand(289.0));
         addSequential(new AutonPidMoveForkliftUpDownCommand(4600, RobotMap.forkLiftUpSpeed));
-        addSequential(new AutonPidTurnToAngleCommand(90.0, 2.0));
+        //addSequential(new AutonPidTurnToAngleCommand(90.0, 2.0));
+        addSequential(new AutonTurnToAngleCommand(.6, 90));
 //          addSequential(new AutonPidDriveStraightCommand(-12.0, .6));
         
         addSequential(new AutonPidDriveStraightCommand(15.5, .6));
