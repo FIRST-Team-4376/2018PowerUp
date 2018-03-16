@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class PidTurnToAngleSubsystem extends PIDSubsystem {	
 
 	public PidTurnToAngleSubsystem(){
-		super("PidTurnToAngleSubsystem", 0.0040, 0.0003, 0.0020);
+		super("PidTurnToAngleSubsystem", 0.0060, 0.0003, 0.0020);
 //		super("PidTurnToAngleSubsystem", 0.007, 0.0002, 0.002);
 	}
 
