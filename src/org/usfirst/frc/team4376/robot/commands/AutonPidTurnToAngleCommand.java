@@ -54,12 +54,13 @@ public class AutonPidTurnToAngleCommand extends Command {
 	@Override
 	protected void end() {
 		Robot.pidTurnToAngle.disable();
+		Robot.pidTurnToAngle.free();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		Robot.pidTurnToAngle.disable();
+		end();
 	}
 }
