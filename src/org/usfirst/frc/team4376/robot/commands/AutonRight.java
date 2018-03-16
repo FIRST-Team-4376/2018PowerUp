@@ -13,8 +13,8 @@ public class AutonRight extends CommandGroup{
 	    
 	    if(gameData.length() > 0){
 	      if(gameData.charAt(0) == 'R'){
-		    	addSequential(new AutonPidDriveStraightCommand(166.5));
-		    	addSequential(new AutonPidTurnToAngleCommand(-90.0, 1.5));
+		    	addSequential(new AutonPidDriveStraightCommand(150.5));
+		    	addSequential(new AutonPidTurnToAngleCommand(-90.0, 2.0));
 		    	addSequential(new AutonPidMoveForkliftUpDownCommand(2700, RobotMap.forkLiftUpSpeed));
 		    	//addSequential(new AutonRaiseForkliftCommand(RobotMap.forkLiftUpSpeed, 2.0 ));
 		    	
@@ -24,7 +24,7 @@ public class AutonRight extends CommandGroup{
 	      	// go for scale
 	    	  addSequential(new AutonPidDriveStraightCommand(289.0));
 	    	  addSequential(new AutonPidMoveForkliftUpDownCommand(4600, RobotMap.forkLiftUpSpeed));
-	    	  addSequential(new AutonPidTurnToAngleCommand(-90.0, 1.0));
+	    	  addSequential(new AutonPidTurnToAngleCommand(-90.0, 2.0));
 //	    	  addSequential(new AutonPidDriveStraightCommand(-12.0, .6));
 	    	  
 	    	  addSequential(new AutonPidDriveStraightCommand(15.5, .6));
