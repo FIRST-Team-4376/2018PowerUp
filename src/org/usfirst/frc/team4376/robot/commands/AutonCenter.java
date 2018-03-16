@@ -10,7 +10,7 @@ public class AutonCenter extends CommandGroup{
         addSequential(new AutonPidDriveStraightCommand(43));
         addSequential(new AutonPidTurnToAngleCommand(45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(54));
-        addSequential(new AutonPidMoveForkliftUpDownCommand(2342, RobotMap.forkLiftUpSpeed));
+        addSequential(new AutonPidMoveForkliftUpDownCommand(2700, RobotMap.forkLiftUpSpeed));
         addSequential(new AutonPidTurnToAngleCommand(-45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(30));
         addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));
@@ -19,7 +19,7 @@ public class AutonCenter extends CommandGroup{
         addSequential(new AutonPidDriveStraightCommand(43));
         addSequential(new AutonPidTurnToAngleCommand(-45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(54));
-        addSequential(new AutonPidMoveForkliftUpDownCommand(2342, RobotMap.forkLiftUpSpeed));
+        addSequential(new AutonPidMoveForkliftUpDownCommand(2700, RobotMap.forkLiftUpSpeed));
         addSequential(new AutonPidTurnToAngleCommand(45.0, 2.0));
         addSequential(new AutonPidDriveStraightCommand(30));
         addSequential(new AutonOpenForkliftCommand(RobotMap.clawOpenSpeed, 2));

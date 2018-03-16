@@ -10,7 +10,7 @@ import org.usfirst.frc.team4376.robot.Robot;
 public class AutonPidMoveForkliftUpDownCommand extends Command {
 	double speed; 
 	double targetDistance; 
-	double marginOfError = 7;
+	double marginOfError = 100;
 	public AutonPidMoveForkliftUpDownCommand(double distanceInches) {
 		targetDistance = distanceInches * 19.1;
 		speed = .5;
