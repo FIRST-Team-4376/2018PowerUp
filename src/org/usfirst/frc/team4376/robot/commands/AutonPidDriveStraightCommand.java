@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4376.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4376.robot.Robot;
@@ -10,7 +9,6 @@ import org.usfirst.frc.team4376.robot.Robot;
  */
 public class AutonPidDriveStraightCommand extends Command {
 	double speed; 
-	Timer t;
 	double targetDistance; 
 	double marginOfError = 10;
 	public AutonPidDriveStraightCommand(double distanceInches) {
@@ -30,8 +28,6 @@ public class AutonPidDriveStraightCommand extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		t.reset();
-		t.start();
 		Robot.driveMotorR.reset();
 		Robot.gyro.reset();
 		Robot.pidDriveStraight.setOutputRange(speed * -1, speed);
@@ -51,10 +47,7 @@ public class AutonPidDriveStraightCommand extends Command {
 		if ((targetDistance - marginOfError) < Robot.driveMotorR.get() &&
 				Robot.driveMotorR.get() < (targetDistance + marginOfError)){
 			return true;
-		} else if(t.get() > 4.0){
-			return true;
-		}
-		else { return false; }
+		} else { return false; }
 	}
 
 	// Called once after isFinished returns true
